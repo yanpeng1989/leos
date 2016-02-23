@@ -59,7 +59,7 @@
 				<!-- sidebar menu -->
 				<ul class="sidebar-menu">
 					<li class="header">用户中心</li>
-					<li class="active treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>用户资料</span> <i
+					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>用户资料</span> <i
 							class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
@@ -68,12 +68,12 @@
 							<li class="active"><a href="password.do"><i class="fa fa-circle-o"></i>密码变更</a></li>
 							<li><a href="binding.do"><i class="fa fa-circle-o"></i>绑定账号</a></li>
 						</ul></li>
-					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务管理</span> <i
+					<li class="active treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务管理</span> <i
 							class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
-							<li class="active"><a href="update.do"><i class="fa fa-circle-o"></i>账户升级</a></li>
-							<li><a href="recommend-register.do"><i class="fa fa-circle-o"></i>新会员注册列表</a></li>
+							<li><a href="update.do"><i class="fa fa-circle-o"></i>账户升级</a></li>
+							<li class="active"><a href="recommend-register.do"><i class="fa fa-circle-o"></i>新会员注册列表</a></li>
 							<li><a href="recommend.do"><i class="fa fa-circle-o"></i>推荐会员列表</a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务明细</span> <i
@@ -116,27 +116,72 @@
 		<div class="content-wrapper">
 			<section class="content-header">
 				<h1>
-					<small>密码变更</small>
+					<small>会员注册</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i>用户资料</a></li>
-					<li class="active">密码变更</li>
+					<li class="active">会员注册</li>
 				</ol>
 			</section>
 
 			<section class="content">
 				<div class="box">
 					<div class="box-header with-border">
-						<h3 class="box-title">登陆密码修改</h3>
+						<h3 class="box-title">节点信息</h3>
 					</div>
 					<div class="box-body">
 						<div class="input-group">
-							<span class="input-group-addon">当前密码</span> 
+							<span class="input-group-addon">会员级别</span> 
+							<select class="form-control">
+                        		<option>一级会员</option>
+                        		<option>二级会员</option>
+                        		<option>三级会员</option>
+                        		<option>四级会员</option>
+                        		<option>五级会员</option>
+                      		</select>
+						</div>
+						<br/>
+						<div class="input-group">
+							<span class="input-group-addon">推&nbsp;&nbsp;荐&nbsp;&nbsp;人</span> 
+							<input type="text" class="form-control" value="xjb1991">
+						</div>
+						<br/>
+						<div class="input-group">
+							<span class="input-group-addon">节&nbsp;&nbsp;点&nbsp;&nbsp;人</span> 
+							<input type="text" class="form-control" value="xjb1991">
+						</div>
+						<br/>
+						<div class="input-group">
+							<span class="input-group-addon">位&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;置</span> 
+							<select class="form-control">
+                        		<option>左侧</option>
+                        		<option>右侧</option>
+                      		</select>
+						</div>
+					</div>
+				</div>
+				<div class="box">
+					<div class="box-header with-border">
+						<h3 class="box-title">登陆信息</h3>
+					</div>
+						<div class="input-group">
+							<span class="input-group-addon">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区</span> 
+							<select class="form-control">
+                        		<option>亚太</option>
+                        		<option>欧洲</option>
+                        		<option>阿联酋</option>
+                        		<option>南美</option>
+                        		<option>北美</option>
+                      		</select>
+						</div>
+						<br/>
+						<div class="input-group">
+							<span class="input-group-addon">用&nbsp;&nbsp;户&nbsp;&nbsp;名</span> 
 							<input type="text" class="form-control">
 						</div>
 						<br/>
 						<div class="input-group">
-							<span class="input-group-addon">最新密码</span> 
+							<span class="input-group-addon">登陆密码</span> 
 							<input type="text" class="form-control">
 						</div>
 						<br/>
@@ -145,36 +190,45 @@
 							<input type="text" class="form-control">
 						</div>
 						<br/>
+						<div class="input-group">
+							<span class="input-group-addon">安全密码</span> 
+							<input type="text" class="form-control">
+						</div>
+						<br/>
+						<div class="input-group">
+							<span class="input-group-addon">确认密码</span> 
+							<input type="text" class="form-control">
+						</div>
+					</div>
+					<div class="box">
+						<div class="box-header with-border">
+							<h3 class="box-title">个人信息</h3>
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon">真实姓名</span> 
+							<input type="text" class="form-control">
+						</div>
+						<br/>
+						<div class="input-group">
+							<span class="input-group-addon">商务中心</span> 
+							<input type="text" class="form-control">
+						</div>
+						<br/>
+						<div class="input-group">
+							<span class="input-group-addon">身&nbsp;&nbsp;份&nbsp;&nbsp;证</span> 
+							<input type="text" class="form-control">
+						</div>
+						<br/>
+						<div class="input-group">
+							<span class="input-group-addon">手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机</span> 
+							<input type="text" class="form-control">
+						</div>
+					</div>
+					<div class="box">
 						<div class="box-body">
-							<button class="btn btn-primary btn-block btn-flat">确认</button>
+							<button class="btn btn-primary btn-block btn-flat">确认申请</button>
 						</div>
 					</div>
-				</div>
-				<div class="box">
-					<div class="box-header with-border">
-						<h3 class="box-title">安全密码修改</h3>
-					</div>
-					<div class="box-body">
-						<div class="input-group">
-							<span class="input-group-addon">当前安全密码</span> 
-							<input type="text" class="form-control">
-						</div>
-						<br/>
-						<div class="input-group">
-							<span class="input-group-addon">最新安全密码</span> 
-							<input type="text" class="form-control">
-						</div>
-						<br/>
-						<div class="input-group">
-							<span class="input-group-addon">确认安全密码</span> 
-							<input type="text" class="form-control">
-						</div>
-						<br/>
-						<div class="box-body">
-							<button class="btn btn-primary btn-block btn-flat">确认</button>
-						</div>
-					</div>
-				</div>
 			</section>
 		</div>
 	</div>

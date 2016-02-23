@@ -11,7 +11,6 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="dist/css/font-awesome.min.css">
     <!-- Ionicons -->
-    
     <link rel="stylesheet" href="dist/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">

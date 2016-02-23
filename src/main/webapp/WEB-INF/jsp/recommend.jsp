@@ -59,22 +59,22 @@
 				<!-- sidebar menu -->
 				<ul class="sidebar-menu">
 					<li class="header">用户中心</li>
-					<li class="active treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>用户资料</span> <i
+					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>用户资料</span> <i
 							class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
 							<li><a href="index.do"><i class="fa fa-circle-o"></i>首页</a></li>
 							<li><a href="user.do"><i class="fa fa-circle-o"></i>个人资料</a></li>
-							<li class="active"><a href="password.do"><i class="fa fa-circle-o"></i>密码变更</a></li>
+							<li><a href="password.do"><i class="fa fa-circle-o"></i>密码变更</a></li>
 							<li><a href="binding.do"><i class="fa fa-circle-o"></i>绑定账号</a></li>
 						</ul></li>
-					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务管理</span> <i
+					<li class="active treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务管理</span> <i
 							class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
-							<li class="active"><a href="update.do"><i class="fa fa-circle-o"></i>账户升级</a></li>
+							<li><a href="update.do"><i class="fa fa-circle-o"></i>账户升级</a></li>
 							<li><a href="recommend-register.do"><i class="fa fa-circle-o"></i>新会员注册列表</a></li>
-							<li><a href="recommend.do"><i class="fa fa-circle-o"></i>推荐会员列表</a></li>
+							<li class="active"><a href="recommend.do"><i class="fa fa-circle-o"></i>推荐会员列表</a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务明细</span> <i
 							class="fa fa-angle-left pull-right"></i>
@@ -129,8 +129,14 @@
 				<div class="box">
 					<div class="box-header">
 						<h3 class="box-title">列表</h3>
+						<br /> <br />
+						<div class="input-group">
+							<span class="input-group-addon">按照姓名搜索</span>
+							<input type="text" class="form-control"> 
+							
+							<span class="input-group-btn"><button class="btn btn-primary btn-flat">搜索</button></span>
+						</div>
 					</div>
-					<!-- /.box-header -->
 					<div class="box-body">
 						<table class="table table-bordered table-striped">
 							<thead>
@@ -144,25 +150,23 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td>0017</td>
+									<td>30017</td>
 									<td>武威</td>
 									<td>一级会员</td>
-									<td>4</td>
-									<td>X</td>
+									<td>2016-01-14 22:06:23</td>
+									<td>13621156481</td>
 								</tr>
 								<tr>
-									<td>Trident</td>
-									<td>Internet Explorer 5.0</td>
-									<td>Win 95+</td>
-									<td>5</td>
-									<td>C</td>
+									<td>30458</td>
+									<td>张彤</td>
+									<td>二级会员</td>
+									<td>2016-01-12 17:51:07</td>
+									<td>13265487895</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
-					<!-- /.box-body -->
 				</div>
-				<!-- /.box -->
 			</section>
 		</div>
 	</div>
