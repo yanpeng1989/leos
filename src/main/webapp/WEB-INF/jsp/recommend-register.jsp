@@ -65,17 +65,16 @@
 						<ul class="treeview-menu">
 							<li><a href="index.do"><i class="fa fa-circle-o"></i>首页</a></li>
 							<li><a href="user.do"><i class="fa fa-circle-o"></i>个人资料</a></li>
-							<li><a href="password.do"><i class="fa fa-circle-o"></i>密码变更</a></li>
-							<li class="active"><a href="binding.do"><i class="fa fa-circle-o"></i>绑定账号</a></li>
+							<li class="active"><a href="password.do"><i class="fa fa-circle-o"></i>密码变更</a></li>
+							<li><a href="binding.do"><i class="fa fa-circle-o"></i>绑定账号</a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务管理</span> <i
 							class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
-							<li><a href="#"><i class="fa fa-circle-o"></i>账户升级</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>直属会员列表</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>新会员注册列表</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>推荐会员列表</a></li>
+							<li class="active"><a href="update.do"><i class="fa fa-circle-o"></i>账户升级</a></li>
+							<li><a href="recommend-register.do"><i class="fa fa-circle-o"></i>新会员注册列表</a></li>
+							<li><a href="recommend.do"><i class="fa fa-circle-o"></i>推荐会员列表</a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务明细</span> <i
 							class="fa fa-angle-left pull-right"></i>
@@ -117,84 +116,64 @@
 		<div class="content-wrapper">
 			<section class="content-header">
 				<h1>
-					<small>绑定账号</small>
+					<small>密码变更</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i>用户资料</a></li>
-					<li class="active">绑定账号</li>
+					<li class="active">密码变更</li>
 				</ol>
 			</section>
 
 			<section class="content">
 				<div class="box">
 					<div class="box-header with-border">
-						<h3 class="box-title">绑定账号</h3>
+						<h3 class="box-title">登陆密码修改</h3>
 					</div>
 					<div class="box-body">
 						<div class="input-group">
-							<span class="input-group-addon">需要绑定的账号</span> 
+							<span class="input-group-addon">当前密码</span> 
 							<input type="text" class="form-control">
 						</div>
 						<br/>
 						<div class="input-group">
-							<span class="input-group-addon">绑定账号的密码</span> 
+							<span class="input-group-addon">最新密码</span> 
+							<input type="text" class="form-control">
+						</div>
+						<br/>
+						<div class="input-group">
+							<span class="input-group-addon">确认密码</span> 
 							<input type="text" class="form-control">
 						</div>
 						<br/>
 						<div class="box-body">
-							<button class="btn btn-primary btn-block btn-flat">确认绑定</button>
+							<button class="btn btn-primary btn-block btn-flat">确认</button>
 						</div>
 					</div>
 				</div>
 				<div class="box">
 					<div class="box-header with-border">
-						<h3 class="box-title">一键归拢所有资金到本账户</h3>
+						<h3 class="box-title">安全密码修改</h3>
 					</div>
 					<div class="box-body">
+						<div class="input-group">
+							<span class="input-group-addon">当前安全密码</span> 
+							<input type="text" class="form-control">
+						</div>
+						<br/>
+						<div class="input-group">
+							<span class="input-group-addon">最新安全密码</span> 
+							<input type="text" class="form-control">
+						</div>
+						<br/>
+						<div class="input-group">
+							<span class="input-group-addon">确认安全密码</span> 
+							<input type="text" class="form-control">
+						</div>
+						<br/>
 						<div class="box-body">
-							<button class="btn btn-primary btn-block btn-flat">确认一键归拢</button>
+							<button class="btn btn-primary btn-block btn-flat">确认</button>
 						</div>
 					</div>
-					<div class="box-body">
-							<div class="box">
-								<div class="box-header">
-									<h3 class="box-title">已绑定账号</h3>
-								</div>
-								<!-- /.box-header -->
-								<div class="box-body">
-									<table id="example1" class="table table-bordered table-striped">
-										<thead>
-											<tr>
-												<th>账号</th>
-												<th>级别</th>
-												<th>K币金额</th>
-												<th>CPM</th>
-												<th>绑定时间</th>
-												<th>操作</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>xjb</td>
-												<td>一级会员</td>
-												<td>230</td>
-												<td>500</td>
-												<td>2016-02-22 13:11:09</td>
-												<td><button class="btn btn-primary btn-block btn-flat">归拢资金</button></td>
-											</tr>
-											<tr>
-												<td>xjb1990</td>
-												<td>一级会员</td>
-												<td>300</td>
-												<td>400</td>
-												<td>2016-01-12 09:36:45</td>
-												<td><button class="btn btn-primary btn-block btn-flat">归拢资金</button></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</div>
 				</div>
 			</section>
 		</div>

@@ -63,10 +63,10 @@
 							class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
-							<li class="active"><a href="#"><i class="fa fa-circle-o"></i>首页</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>个人资料</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>密码变更</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>绑定账号</a></li>
+							<li><a href="index.do"><i class="fa fa-circle-o"></i>首页</a></li>
+							<li><a href="user.do"><i class="fa fa-circle-o"></i>个人资料</a></li>
+							<li class="active"><a href="password.do"><i class="fa fa-circle-o"></i>密码变更</a></li>
+							<li><a href="binding.do"><i class="fa fa-circle-o"></i>绑定账号</a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务管理</span> <i
 							class="fa fa-angle-left pull-right"></i>
@@ -117,19 +117,63 @@
 		<div class="content-wrapper">
 			<section class="content-header">
 				<h1>
-					<small>首页 </small>
+					<small>密码变更</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i>用户资料</a></li>
-					<li class="active">首页</li>
+					<li class="active">密码变更</li>
 				</ol>
 			</section>
 
 			<section class="content">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="box-header with-border"></div>
-						<div class="box-body"></div>
+				<div class="box">
+					<div class="box-header with-border">
+						<h3 class="box-title">登陆密码修改</h3>
+					</div>
+					<div class="box-body">
+						<div class="input-group">
+							<span class="input-group-addon">当前密码</span> 
+							<input type="text" class="form-control">
+						</div>
+						<br/>
+						<div class="input-group">
+							<span class="input-group-addon">最新密码</span> 
+							<input type="text" class="form-control">
+						</div>
+						<br/>
+						<div class="input-group">
+							<span class="input-group-addon">确认密码</span> 
+							<input type="text" class="form-control">
+						</div>
+						<br/>
+						<div class="box-body">
+							<button class="btn btn-primary btn-block btn-flat">确认</button>
+						</div>
+					</div>
+				</div>
+				<div class="box">
+					<div class="box-header with-border">
+						<h3 class="box-title">安全密码修改</h3>
+					</div>
+					<div class="box-body">
+						<div class="input-group">
+							<span class="input-group-addon">当前安全密码</span> 
+							<input type="text" class="form-control">
+						</div>
+						<br/>
+						<div class="input-group">
+							<span class="input-group-addon">最新安全密码</span> 
+							<input type="text" class="form-control">
+						</div>
+						<br/>
+						<div class="input-group">
+							<span class="input-group-addon">确认安全密码</span> 
+							<input type="text" class="form-control">
+						</div>
+						<br/>
+						<div class="box-body">
+							<button class="btn btn-primary btn-block btn-flat">确认</button>
+						</div>
 					</div>
 				</div>
 			</section>

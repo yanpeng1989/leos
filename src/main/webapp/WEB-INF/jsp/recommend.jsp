@@ -11,19 +11,15 @@
 				<div class="navbar-custom-menu">
 					<div class="navbar-custom-menu">
 						<ul class="nav navbar-nav">
-							<li class="dropdown user user-menu">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-									<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> 
-									<span class="hidden-xs">杜涛</span>
-								</a>
+							<li class="dropdown user user-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img
+									src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> <span class="hidden-xs">杜涛</span>
+							</a>
 								<ul class="dropdown-menu">
 									<!-- User image -->
-									<li class="user-header">
-										<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+									<li class="user-header"><img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 										<p>
 											一级会员 <small>中国</small>
-										</p>
-									</li>
+										</p></li>
 									<!-- Menu Body -->
 									<li class="user-body">
 										<div class="col-xs-4 text-center">
@@ -38,8 +34,7 @@
 									</li>
 									<!-- Menu Footer-->
 									<li class="user-footer">
-										<div class="pull-left">
-										</div>
+										<div class="pull-left"></div>
 										<div class="pull-right">
 											<a href="#" class="btn btn-default btn-flat">退出</a>
 										</div>
@@ -68,19 +63,18 @@
 							class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
-							<li class="active"><a href="#"><i class="fa fa-circle-o"></i>首页</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>个人资料</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>密码变更</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>绑定账号</a></li>
+							<li><a href="index.do"><i class="fa fa-circle-o"></i>首页</a></li>
+							<li><a href="user.do"><i class="fa fa-circle-o"></i>个人资料</a></li>
+							<li class="active"><a href="password.do"><i class="fa fa-circle-o"></i>密码变更</a></li>
+							<li><a href="binding.do"><i class="fa fa-circle-o"></i>绑定账号</a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务管理</span> <i
 							class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
-							<li><a href="#"><i class="fa fa-circle-o"></i>账户升级</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>直属会员列表</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>新会员注册列表</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>推荐会员列表</a></li>
+							<li class="active"><a href="update.do"><i class="fa fa-circle-o"></i>账户升级</a></li>
+							<li><a href="recommend-register.do"><i class="fa fa-circle-o"></i>新会员注册列表</a></li>
+							<li><a href="recommend.do"><i class="fa fa-circle-o"></i>推荐会员列表</a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务明细</span> <i
 							class="fa fa-angle-left pull-right"></i>
@@ -122,25 +116,64 @@
 		<div class="content-wrapper">
 			<section class="content-header">
 				<h1>
-					会员等级：1级 <small>首页</small>
+					<small>推荐会员列表</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i>用户资料</a></li>
-					<li class="active">首页</li>
+					<li class="active">推荐会员列表</li>
 				</ol>
 			</section>
-			<hr />
-			<section class="content"></section>
+
+			<section class="content">
+
+				<div class="box">
+					<div class="box-header">
+						<h3 class="box-title">列表</h3>
+					</div>
+					<!-- /.box-header -->
+					<div class="box-body">
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>编号</th>
+									<th>姓名</th>
+									<th>等级</th>
+									<th>时间</th>
+									<th>联系方式</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>0017</td>
+									<td>武威</td>
+									<td>一级会员</td>
+									<td>4</td>
+									<td>X</td>
+								</tr>
+								<tr>
+									<td>Trident</td>
+									<td>Internet Explorer 5.0</td>
+									<td>Win 95+</td>
+									<td>5</td>
+									<td>C</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- /.box-body -->
+				</div>
+				<!-- /.box -->
+			</section>
 		</div>
-		<!-- /.content-wrapper -->
-		<footer class="main-footer">
-			<div class="pull-right hidden-xs">
-				<b>Version</b> 2.3.0
-			</div>
-			<strong>Copyright &copy; 2014-2015 <a href="#">LEOS—FUND</a>.
-			</strong> All rights reserved.
-		</footer>
 	</div>
+	<!-- /.content-wrapper -->
+	<footer class="main-footer">
+		<div class="pull-right hidden-xs">
+			<b>Version</b> 2.3.0
+		</div>
+		<strong>Copyright &copy; 2014-2015 <a href="#">LEOS—FUND</a>.
+		</strong> All rights reserved.
+	</footer>
 	<jsp:include page="foot.jsp"></jsp:include>
 </body>
 </html>
