@@ -67,19 +67,19 @@
 							<li><a href="password.do"><i class="fa fa-circle-o"></i>密码变更</a></li>
 							<li><a href="binding.do"><i class="fa fa-circle-o"></i>绑定账号</a></li>
 						</ul></li>
-					<li class="active treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务管理</span> <i
+					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务管理</span> <i
 							class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
-							<li class="active"><a href="update.do"><i class="fa fa-circle-o"></i>账户升级</a></li>
+							<li><a href="update.do"><i class="fa fa-circle-o"></i>账户升级</a></li>
 							<li><a href="recommend-register.do"><i class="fa fa-circle-o"></i>新会员注册列表</a></li>
 							<li><a href="recommend.do"><i class="fa fa-circle-o"></i>推荐会员列表</a></li>
 						</ul></li>
-					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务明细</span> <i
+					<li class="active treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务明细</span> <i
 							class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
-							<li><a href="bonus.do"><i class="fa fa-circle-o"></i>奖金明细</a></li>
+							<li class="active"><a href="bonus.do"><i class="fa fa-circle-o"></i>奖金明细</a></li>
 							<li><a href="pair.do"><i class="fa fa-circle-o"></i>配对报告</a></li>
 							<li><a href="send.do"><i class="fa fa-circle-o"></i>拆分明细</a></li>
 						</ul></li>
@@ -115,123 +115,90 @@
 		<div class="content-wrapper">
 			<section class="content-header">
 				<h1>
-					<small>升级账号</small>
+					<small>奖金明细</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i>用户资料</a></li>
-					<li class="active">升级账号</li>
+					<li class="active">奖金明细</li>
 				</ol>
 			</section>
 
 			<section class="content">
+
 				<div class="box">
-					<div class="box-body">
-						<div class="box box-widget widget-user">
-							<div class="widget-user-header bg-aqua-active">
-								<h3 class="widget-user-username">一级会员</h3>
-								<h5 class="widget-user-desc">中国区</h5>
-							</div>
-							<div class="widget-user-image">
-								<img class="img-circle" src="/leos/dist/img/user1-128x128.jpg" alt="User Avatar">
-							</div>
-							<div class="box-footer">
-								<div class="row">
-									<div class="col-sm-2 border-right">
-										<div class="description-block">
-											<h5 class="description-header">总奖金($)</h5>
-											<span class="description-text">3200</span>
-										</div>
-									</div>
-									<div class="col-sm-2 border-right">
-										<div class="description-block">
-											<h5 class="description-header">K币($)</h5>
-											<span class="description-text">200</span>
-										</div>
-									</div>
-									<div class="col-sm-2 border-right">
-										<div class="description-block">
-											<h5 class="description-header">激活币($)</h5>
-											<span class="description-text">100</span>
-										</div>
-									</div>
-									<div class="col-sm-2 border-right">
-										<div class="description-block">
-											<h5 class="description-header">电子币($)</h5>
-											<span class="description-text">500</span>
-										</div>
-									</div>
-									<div class="col-sm-2 border-right">
-										<div class="description-block">
-											<h5 class="description-header">保管金($)</h5>
-											<span class="description-text">20</span>
-										</div>
-									</div>
-									<div class="col-sm-2">
-										<div class="description-block">
-											<h5 class="description-header">CPM</h5>
-											<span class="description-text">100</span>
-										</div>
-									</div>
-								</div>
-							</div>
+					<div class="box-header">
+						<h3 class="box-title">奖金明细</h3>
+						<br /> <br />
+						<div class="input-group">
+							<span class="input-group-addon">日期</span>
+							<select class="form-control">
+                        		<option>最近15天</option>
+                        		<option>最近30天</option>
+                        		<option>最近60天</option>
+                        		<option>全部记录</option>
+                      		</select>
+							<span class="input-group-btn"><button class="btn btn-primary btn-flat">查看</button></span>
 						</div>
 					</div>
-				</div>
-				<div class="box-body">
-					<div class="box">
-						<div class="box-header">
-							<h3 class="box-title">升级账户</h3>
-						</div>
-						<div class="box-body">
-							<table id="example1" class="table table-bordered table-striped">
-								<thead>
-									<tr>
-										<th>配套名称</th>
-										<th>价格</th>
-										<th>升级价格</th>
-										<th>操作</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>一级会员</td>
-										<td>100$</td>
-										<td>0$</td>
-										<td>已升级</td>
-									</tr>
-									<tr>
-										<td>二级会员</td>
-										<td>200$</td>
-										<td>100$</td>
-										<td><a href="#">升级</a></td>
-									</tr>
-									<tr>
-										<td>三级会员</td>
-										<td>500$</td>
-										<td>400$</td>
-										<td><a href="#">升级</a></td>
-									</tr>
-									<tr>
-										<td>四级会员</td>
-										<td>1000$</td>
-										<td>900$</td>
-										<td><a href="#">升级</a></td>
-									</tr>
-									<tr>
-										<td>五级会员</td>
-										<td>2000$</td>
-										<td>1900$</td>
-										<td><a href="#">升级</a></td>
-									</tr>
-									<tr>
-										<td>六级会员</td>
-										<td>3000$</td>
-										<td>2900$</td>
-										<td><a href="#">升级</a></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
+					<div class="box-body">
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>日期</th>
+									<th>推荐奖金</th>
+									<th>对碰奖金</th>
+									<th>领导奖金</th>
+									<th>见点奖金</th>
+									<th>报单奖金</th>
+									<th>总额</th>
+									<th>详情</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>2016-02-24</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td><a href="#">查看</a></td>
+								</tr>
+								<tr>
+									<td>2016-02-23</td>
+									<td>10.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>10.00</td>
+									<td><a href="#">查看</a></td>
+								</tr>
+								<tr>
+									<td>2016-02-22</td>
+									<td>20.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>20.00</td>
+									<td><a href="#">查看</a></td>
+								</tr>
+							</tbody>
+							<tfoot>
+                      			<tr>
+                        			<th>总额</th>
+                        			<th>30.00</th>
+                        			<th>0.00</th>
+                        			<th>0.00</th>
+                        			<th>0.00</th>
+                        			<th>0.00</th>
+                        			<th>30.00</th>
+                        			<th></th>
+                      			</tr>
+                    		</tfoot>
+						</table>
 					</div>
 				</div>
 			</section>

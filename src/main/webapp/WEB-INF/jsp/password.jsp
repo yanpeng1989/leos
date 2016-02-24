@@ -72,44 +72,43 @@
 							class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
-							<li><a href="#"><i class="fa fa-circle-o"></i>账户升级</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>直属会员列表</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>新会员注册列表</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>推荐会员列表</a></li>
+							<li><a href="update.do"><i class="fa fa-circle-o"></i>账户升级</a></li>
+							<li><a href="recommend-register.do"><i class="fa fa-circle-o"></i>新会员注册列表</a></li>
+							<li><a href="recommend.do"><i class="fa fa-circle-o"></i>推荐会员列表</a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务明细</span> <i
 							class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
-							<li><a href="#"><i class="fa fa-circle-o"></i>奖金明细</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>配对报告</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>拆分明细</a></li>
+							<li><a href="bonus.do"><i class="fa fa-circle-o"></i>奖金明细</a></li>
+							<li><a href="pair.do"><i class="fa fa-circle-o"></i>配对报告</a></li>
+							<li><a href="send.do"><i class="fa fa-circle-o"></i>拆分明细</a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>交易大厅</span> <i
 							class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
-							<li><a href="#"><i class="fa fa-circle-o"></i>CPM状态</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>CPM交易列表</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>CPM交易状态</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>购买CPM</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>出售CPM</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>K币交易状态</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>K币购买</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>K币出售</a></li>
+							<li><a href="coin-status.do"><i class="fa fa-circle-o"></i>CPM状态</a></li>
+							<li><a href="coin-trade.do"><i class="fa fa-circle-o"></i>CPM交易列表</a></li>
+							<li><a href="coin-trade-status.do"><i class="fa fa-circle-o"></i>CPM交易状态</a></li>
+							<li><a href="coin-purchase.do"><i class="fa fa-circle-o"></i>购买CPM</a></li>
+							<li><a href="coin-sell.do"><i class="fa fa-circle-o"></i>出售CPM</a></li>
+							<li><a href="k-trade-status.do"><i class="fa fa-circle-o"></i>K币交易状态</a></li>
+							<li><a href="k-purchase.do"><i class="fa fa-circle-o"></i>K币购买</a></li>
+							<li><a href="k-sell.do"><i class="fa fa-circle-o"></i>K币出售</a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>货币管理</span> <i
 							class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
-							<li><a href="#"><i class="fa fa-circle-o"></i>激活币转账</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>保管币转换</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>K币转激活币</a></li>
+							<li><a href="active-coin-transfer.do"><i class="fa fa-circle-o"></i>激活币转账</a></li>
+							<li><a href="custody-coin-transfer.do"><i class="fa fa-circle-o"></i>保管币转换</a></li>
+							<li><a href="coin-to-active.do"><i class="fa fa-circle-o"></i>K币转激活币</a></li>
 						</ul></li>
 					<li class="header">新闻中心</li>
-					<li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>公告</span></a></li>
-					<li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>金额变动日志</span></a></li>
-					<li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>投诉建议</span></a></li>
+					<li><a href="note.do"><i class="fa fa-circle-o text-red"></i> <span>公告</span></a></li>
+					<li><a href="log.do"><i class="fa fa-circle-o text-yellow"></i> <span>金额变动日志</span></a></li>
+					<li><a href="faq.do"><i class="fa fa-circle-o text-aqua"></i> <span>投诉建议</span></a></li>
 				</ul>
 			</section>
 			<!-- /.sidebar -->
