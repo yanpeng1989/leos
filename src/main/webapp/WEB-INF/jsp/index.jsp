@@ -8,6 +8,9 @@
 			<a href="#" class="logo"> <span class="logo-mini"><b>LE</b>OS</span> <span class="logo-lg"><b>量子货币</b>LEOS</span>
 			</a>
 			<nav class="navbar navbar-static-top" role="navigation">
+				<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            		<span class="sr-only">Toggle navigation</span>
+          		</a>
 				<div class="navbar-custom-menu">
 					<div class="navbar-custom-menu">
 						<ul class="nav navbar-nav">
@@ -64,9 +67,9 @@
 					</a>
 						<ul class="treeview-menu">
 							<li class="active"><a href="#"><i class="fa fa-circle-o"></i>首页</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>个人资料</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>密码变更</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>绑定账号</a></li>
+							<li><a href="user.do"><i class="fa fa-circle-o"></i>个人资料</a></li>
+							<li><a href="password.do"><i class="fa fa-circle-o"></i>密码变更</a></li>
+							<li><a href="binding.do"><i class="fa fa-circle-o"></i>绑定账号</a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务管理</span> <i
 							class="fa fa-angle-left pull-right"></i>
