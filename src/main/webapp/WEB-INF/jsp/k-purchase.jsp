@@ -92,11 +92,11 @@
 						<ul class="treeview-menu">
 							<li><a href="coin-status.do"><i class="fa fa-circle-o"></i>CPM状态</a></li>
 							<li><a href="coin-trade.do"><i class="fa fa-circle-o"></i>CPM交易列表</a></li>
-							<li><a href="coin-trade-status.do"><i class="fa fa-circle-o"></i>CPM交易状态</a></li>
+							<li class="active"><a href="coin-trade-status.do"><i class="fa fa-circle-o"></i>CPM交易状态</a></li>
 							<li><a href="coin-purchase.do"><i class="fa fa-circle-o"></i>购买CPM</a></li>
 							<li><a href="coin-sell.do"><i class="fa fa-circle-o"></i>出售CPM</a></li>
 							<li><a href="k-trade-status.do"><i class="fa fa-circle-o"></i>K币交易状态</a></li>
-							<li class="active"><a href="k-purchase.do"><i class="fa fa-circle-o"></i>K币购买</a></li>
+							<li><a href="k-purchase.do"><i class="fa fa-circle-o"></i>K币购买</a></li>
 							<li><a href="k-sell.do"><i class="fa fa-circle-o"></i>K币出售</a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>货币管理</span> <i
@@ -118,36 +118,163 @@
 		<div class="content-wrapper">
 			<section class="content-header">
 				<h1>
-					<small>拆分明细</small>
+					<small>K交易状态</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i>用户资料</a></li>
-					<li class="active">拆分明细</li>
+					<li class="active">K交易状态</li>
 				</ol>
 			</section>
-
 			<section class="content">
-
 				<div class="box">
 					<div class="box-header">
-						<h3 class="box-title">拆分明细</h3>
+						<h3 class="box-title">购买K记录</h3>
+						<br /> <br />
+						<div class="input-group">
+							<span class="input-group-addon">姓名</span>
+							<input type="text" class="form-control">
+							<span class="input-group-btn"><button class="btn btn-primary btn-flat">搜索</button></span>
+						</div>
 					</div>
 					<div class="box-body">
 						<table class="table table-bordered table-striped">
 							<thead>
 								<tr>
-									<th>日期</th>
-									<th>总发行量</th>
-									<th>拆分倍数</th>
-									<th>拆分后金额</th>
+									<th>会员</th>
+									<th>交易类型</th>
+									<th>出售K币数量($)</th>
+									<th>购买价格($)</th>
+									<th>时间</th>
+									<th>状态</th>
+									<th>操作</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>2016-01-14 00:00:00</td>
-									<td>200000</td>
-									<td>1</td>
-									<td>2</td>
+									<td>GXW</td>
+									<td>卖出</td>
+									<td>100</td>
+									<td>$95.00(665)</td>
+									<td>2016-02-25 21:38:44</td>
+									<td>等待卖方确认</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>yu8899</td>
+									<td>卖出</td>
+									<td>200</td>
+									<td>$190.00(1330)</td>
+									<td>2016-02-25 21:10:05</td>
+									<td>等待卖方确认</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>xmjs2005</td>
+									<td>卖出</td>
+									<td>50</td>
+									<td>$47.50(332.5)</td>
+									<td>2016-02-24 12:45:38</td>
+									<td>等待卖方确认</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>cyz665	</td>
+									<td>卖出</td>
+									<td>50</td>
+									<td>$47.50(332.5)</td>
+									<td>2016-02-24 10:15:38</td>
+									<td>等待卖方确认</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>GXW</td>
+									<td>卖出</td>
+									<td>100</td>
+									<td>$95.00(665)</td>
+									<td>2016-02-25 21:38:44</td>
+									<td>等待卖方确认</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>yu8899</td>
+									<td>卖出</td>
+									<td>200</td>
+									<td>$190.00(1330)</td>
+									<td>2016-02-25 21:10:05</td>
+									<td>等待卖方确认</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>xmjs2005</td>
+									<td>卖出</td>
+									<td>50</td>
+									<td>$47.50(332.5)</td>
+									<td>2016-02-24 12:45:38</td>
+									<td>等待卖方确认</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>cyz665	</td>
+									<td>卖出</td>
+									<td>50</td>
+									<td>$47.50(332.5)</td>
+									<td>2016-02-24 10:15:38</td>
+									<td>等待卖方确认</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>cyz665	</td>
+									<td>卖出</td>
+									<td>50</td>
+									<td>$47.50(332.5)</td>
+									<td>2016-02-24 10:15:38</td>
+									<td>等待卖方确认</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>GXW</td>
+									<td>卖出</td>
+									<td>100</td>
+									<td>$95.00(665)</td>
+									<td>2016-02-25 21:38:44</td>
+									<td>等待卖方确认</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>yu8899</td>
+									<td>卖出</td>
+									<td>200</td>
+									<td>$190.00(1330)</td>
+									<td>2016-02-25 21:10:05</td>
+									<td>等待卖方确认</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>cyz665	</td>
+									<td>卖出</td>
+									<td>50</td>
+									<td>$47.50(332.5)</td>
+									<td>2016-02-24 10:15:38</td>
+									<td>等待卖方确认</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>GXW</td>
+									<td>卖出</td>
+									<td>100</td>
+									<td>$95.00(665)</td>
+									<td>2016-02-25 21:38:44</td>
+									<td>等待卖方确认</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>yu8899</td>
+									<td>卖出</td>
+									<td>200</td>
+									<td>$190.00(1330)</td>
+									<td>2016-02-25 21:10:05</td>
+									<td>等待卖方确认</td>
+									<td></td>
 								</tr>
 							</tbody>
 						</table>

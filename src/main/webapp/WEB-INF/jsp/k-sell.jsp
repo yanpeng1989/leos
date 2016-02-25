@@ -94,10 +94,10 @@
 							<li><a href="coin-trade.do"><i class="fa fa-circle-o"></i>CPM交易列表</a></li>
 							<li><a href="coin-trade-status.do"><i class="fa fa-circle-o"></i>CPM交易状态</a></li>
 							<li><a href="coin-purchase.do"><i class="fa fa-circle-o"></i>购买CPM</a></li>
-							<li><a href="coin-sell.do"><i class="fa fa-circle-o"></i>出售CPM</a></li>
+							<li class="active"><a href="coin-sell.do"><i class="fa fa-circle-o"></i>出售CPM</a></li>
 							<li><a href="k-trade-status.do"><i class="fa fa-circle-o"></i>K币交易状态</a></li>
 							<li><a href="k-purchase.do"><i class="fa fa-circle-o"></i>K币购买</a></li>
-							<li class="active"><a href="k-sell.do"><i class="fa fa-circle-o"></i>K币出售</a></li>
+							<li><a href="k-sell.do"><i class="fa fa-circle-o"></i>K币出售</a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>货币管理</span> <i
 							class="fa fa-angle-left pull-right"></i>
@@ -118,36 +118,70 @@
 		<div class="content-wrapper">
 			<section class="content-header">
 				<h1>
-					<small>拆分明细</small>
+					<small>出售K币</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i>用户资料</a></li>
-					<li class="active">拆分明细</li>
+					<li class="active">出售K币</li>
 				</ol>
 			</section>
 
 			<section class="content">
-
 				<div class="box">
 					<div class="box-header">
-						<h3 class="box-title">拆分明细</h3>
+						<h3 class="box-title">出售K币</h3>
+						<br /> <br />
+						<div class="input-group">
+							<span class="input-group-addon">出售数量</span>
+							<input type="text" class="form-control" placeholder="最小数量为1">
+							<span class="input-group-btn"><button class="btn btn-primary btn-flat">出售</button></span>
+						</div>
 					</div>
 					<div class="box-body">
 						<table class="table table-bordered table-striped">
 							<thead>
 								<tr>
-									<th>日期</th>
-									<th>总发行量</th>
-									<th>拆分倍数</th>
-									<th>拆分后金额</th>
+									<th>我的K币($)</th>
+									<th>我的激活币($)</th>
+									<th>我的电子币($)</th>
+									<th>我的保管金($)</th>
+									<th>我的CPM</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>2016-01-14 00:00:00</td>
-									<td>200000</td>
-									<td>1</td>
-									<td>2</td>
+									<td style="color: red;">200</td>
+									<td>100</td>
+									<td>500</td>
+									<td>20</td>
+									<td>100</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="box">
+					<div class="box-header">
+						<h3 class="box-title">我的交易</h3>
+					</div>
+					<div class="box-body">
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>出售日期</th>
+									<th>成交日期</th>
+									<th>电子币</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>2016-02-24</td>
+									<td>2016-04-15</td>
+									<td>102</td>
+									<td>交易中</td>
+									<td><a href="">查看</a></td>
 								</tr>
 							</tbody>
 						</table>

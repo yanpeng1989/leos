@@ -4,6 +4,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 		<header class="main-header">
+			<!-- Logo -->
 			<a href="#" class="logo"> <span class="logo-mini"><b>LE</b>OS</span> <span class="logo-lg"><b>量子货币</b>LEOS</span>
 			</a>
 			<nav class="navbar navbar-static-top" role="navigation">
@@ -67,15 +68,15 @@
 						<ul class="treeview-menu">
 							<li><a href="index.do"><i class="fa fa-circle-o"></i>首页</a></li>
 							<li><a href="user.do"><i class="fa fa-circle-o"></i>个人资料</a></li>
-							<li><a href="password.do"><i class="fa fa-circle-o"></i>密码变更</a></li>
+							<li class="active"><a href="password.do"><i class="fa fa-circle-o"></i>密码变更</a></li>
 							<li><a href="binding.do"><i class="fa fa-circle-o"></i>绑定账号</a></li>
 						</ul></li>
-					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务管理</span> <i
+					<li class="active treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务管理</span> <i
 							class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
 							<li><a href="update.do"><i class="fa fa-circle-o"></i>账户升级</a></li>
-							<li><a href="recommend-register.do"><i class="fa fa-circle-o"></i>新会员注册列表</a></li>
+							<li class="active"><a href="recommend-register.do"><i class="fa fa-circle-o"></i>新会员注册列表</a></li>
 							<li><a href="recommend.do"><i class="fa fa-circle-o"></i>推荐会员列表</a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务明细</span> <i
@@ -99,11 +100,11 @@
 							<li><a href="k-purchase.do"><i class="fa fa-circle-o"></i>K币购买</a></li>
 							<li><a href="k-sell.do"><i class="fa fa-circle-o"></i>K币出售</a></li>
 						</ul></li>
-					<li class="active treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>货币管理</span> <i
+					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>货币管理</span> <i
 							class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
-							<li class="active"><a href="active-coin-transfer.do"><i class="fa fa-circle-o"></i>激活币转账</a></li>
+							<li><a href="active-coin-transfer.do"><i class="fa fa-circle-o"></i>激活币转账</a></li>
 							<li><a href="custody-coin-transfer.do"><i class="fa fa-circle-o"></i>保管币转换</a></li>
 							<li><a href="coin-to-active.do"><i class="fa fa-circle-o"></i>K币转激活币</a></li>
 						</ul></li>
@@ -118,39 +119,57 @@
 		<div class="content-wrapper">
 			<section class="content-header">
 				<h1>
-					<small>拆分明细</small>
+					<small>激活币转账</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i>用户资料</a></li>
-					<li class="active">拆分明细</li>
+					<li class="active">激活币转账</li>
 				</ol>
 			</section>
-
 			<section class="content">
-
 				<div class="box">
-					<div class="box-header">
-						<h3 class="box-title">拆分明细</h3>
+					<div class="box-header with-border">
+						<h3 class="box-title">激活币转账</h3>
 					</div>
 					<div class="box-body">
-						<table class="table table-bordered table-striped">
-							<thead>
-								<tr>
-									<th>日期</th>
-									<th>总发行量</th>
-									<th>拆分倍数</th>
-									<th>拆分后金额</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>2016-01-14 00:00:00</td>
-									<td>200000</td>
-									<td>1</td>
-									<td>2</td>
-								</tr>
-							</tbody>
-						</table>
+						<div class="info-box" style="height: 30px;width: 100%;">
+                			<span class="info-box-icon" style="background-color:#3c8dbc;width: 100%;">
+                				<label style="font-size: 14px;color: white;">我的激活币数量:100</label>
+                			</span>
+              			</div><!-- /.info-box -->
+					</div>
+					<br/>
+					<div class="box-body">
+						<div class="input-group">
+							<span class="input-group-addon">转移账户</span> 
+							<input type="text" class="form-control">
+						</div>
+					</div>
+					<br/>
+					<div class="box-body">
+						<div class="input-group">
+							<span class="input-group-addon">账户户主</span> 
+							<input type="text" class="form-control">
+						</div>
+					</div>
+					<br/>
+					<div class="box-body">
+						<div class="input-group">
+							<span class="input-group-addon">转移金额</span> 
+							<input type="text" class="form-control">
+						</div>
+					</div>
+					<br/>
+					<div class="box-body">
+						<div class="input-group">
+							<span class="input-group-addon">转移备注</span> 
+							<input type="text" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="box">
+					<div class="box-body">
+						<button class="btn btn-primary btn-block btn-flat">确认转账</button>
 					</div>
 				</div>
 			</section>

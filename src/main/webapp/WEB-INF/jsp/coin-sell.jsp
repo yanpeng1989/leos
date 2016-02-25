@@ -177,11 +177,11 @@
 						<table class="table table-bordered table-striped">
 							<thead>
 								<tr>
-									<th>K币($)</th>
-									<th>激活币($)</th>
-									<th>电子币($)</th>
-									<th>保管金($)</th>
-									<th>CPM</th>
+									<th>我的K币($)</th>
+									<th>我的激活币($)</th>
+									<th>我的电子币($)</th>
+									<th>我的保管金($)</th>
+									<th>我的CPM</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -204,10 +204,9 @@
 						<table class="table table-bordered table-striped">
 							<thead>
 								<tr>
-									<th>购买日期</th>
+									<th>出售日期</th>
 									<th>成交日期</th>
-									<th>排队时间</th>
-									<th>使用电子币</th>
+									<th>电子币</th>
 									<th>状态</th>
 									<th>操作</th>
 								</tr>
@@ -216,7 +215,6 @@
 								<tr>
 									<td>2016-02-24</td>
 									<td>2016-04-15</td>
-									<td>23天</td>
 									<td>102</td>
 									<td>交易中</td>
 									<td><a href="">查看</a></td>
