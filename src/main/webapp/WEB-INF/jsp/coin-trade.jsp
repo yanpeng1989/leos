@@ -118,36 +118,168 @@
 		<div class="content-wrapper">
 			<section class="content-header">
 				<h1>
-					<small>拆分明细</small>
+					<small>交易列表</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i>用户资料</a></li>
-					<li class="active">拆分明细</li>
+					<li class="active">交易列表</li>
 				</ol>
 			</section>
 
 			<section class="content">
-
 				<div class="box">
 					<div class="box-header">
-						<h3 class="box-title">拆分明细</h3>
+						<h3 class="box-title">交易列表</h3>
+						<br /> <br />
+						<div class="input-group">
+							<span class="input-group-addon">日期</span>
+							<select class="form-control">
+                        		<option>最近15天</option>
+                        		<option>最近30天</option>
+                        		<option>最近60天</option>
+                      		</select>
+							<span class="input-group-btn"><button class="btn btn-primary btn-flat">查看</button></span>
+						</div>
 					</div>
 					<div class="box-body">
 						<table class="table table-bordered table-striped">
 							<thead>
 								<tr>
-									<th>日期</th>
-									<th>总发行量</th>
-									<th>拆分倍数</th>
-									<th>拆分后金额</th>
+									<th>会员</th>
+									<th>交易类型</th>
+									<th>交易量</th>
+									<th>交易单价</th>
+									<th>成交价</th>
+									<th>交易时间</th>
+									<th>状态</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>2016-01-14 00:00:00</td>
-									<td>200000</td>
-									<td>1</td>
-									<td>2</td>
+									<td>pzw006</td>
+									<td>卖出</td>
+									<td>18</td>
+									<td>2.08</td>
+									<td>37.44</td>
+									<td>2016-02-24 20:39:46</td>
+									<td>进行中</td>
+								</tr>
+								<tr>
+									<td>zy456</td>
+									<td>卖出</td>
+									<td>18</td>
+									<td>2.08</td>
+									<td>37.44</td>
+									<td>2016-02-24 20:39:46</td>
+									<td>进行中</td>
+								</tr>
+								<tr>
+									<td>gxq199</td>
+									<td>卖出</td>
+									<td>18</td>
+									<td>2.08</td>
+									<td>37.44</td>
+									<td>2016-02-24 20:39:46</td>
+									<td>进行中</td>
+								</tr>
+								<tr>
+									<td>zcm668</td>
+									<td>卖出</td>
+									<td>18</td>
+									<td>2.08</td>
+									<td>37.44</td>
+									<td>2016-02-24 20:39:46</td>
+									<td>进行中</td>
+								</tr>
+								<tr>
+									<td>cwj01</td>
+									<td>卖出</td>
+									<td>18</td>
+									<td>2.08</td>
+									<td>37.44</td>
+									<td>2016-02-24 20:39:46</td>
+									<td>进行中</td>
+								</tr>
+								<tr>
+									<td>wudazheng</td>
+									<td>卖出</td>
+									<td>18</td>
+									<td>2.08</td>
+									<td>37.44</td>
+									<td>2016-02-24 20:39:46</td>
+									<td>进行中</td>
+								</tr>
+								<tr>
+									<td>gxq199</td>
+									<td>卖出</td>
+									<td>18</td>
+									<td>2.08</td>
+									<td>37.44</td>
+									<td>2016-02-24 20:39:46</td>
+									<td>进行中</td>
+								</tr>
+								<tr>
+									<td>zcm668</td>
+									<td>卖出</td>
+									<td>18</td>
+									<td>2.08</td>
+									<td>37.44</td>
+									<td>2016-02-24 20:39:46</td>
+									<td>进行中</td>
+								</tr>
+								<tr>
+									<td>cwj01</td>
+									<td>卖出</td>
+									<td>18</td>
+									<td>2.08</td>
+									<td>37.44</td>
+									<td>2016-02-24 20:39:46</td>
+									<td>进行中</td>
+								</tr>
+								<tr>
+									<td>wudazheng</td>
+									<td>卖出</td>
+									<td>18</td>
+									<td>2.08</td>
+									<td>37.44</td>
+									<td>2016-02-24 20:39:46</td>
+									<td>进行中</td>
+								</tr>
+								<tr>
+									<td>gxq199</td>
+									<td>卖出</td>
+									<td>18</td>
+									<td>2.08</td>
+									<td>37.44</td>
+									<td>2016-02-24 20:39:46</td>
+									<td>进行中</td>
+								</tr>
+								<tr>
+									<td>zcm668</td>
+									<td>卖出</td>
+									<td>18</td>
+									<td>2.08</td>
+									<td>37.44</td>
+									<td>2016-02-24 20:39:46</td>
+									<td>已退回</td>
+								</tr>
+								<tr>
+									<td>cwj01</td>
+									<td>卖出</td>
+									<td>18</td>
+									<td>2.08</td>
+									<td>37.44</td>
+									<td>2016-02-24 20:39:46</td>
+									<td>已退回</td>
+								</tr>
+								<tr>
+									<td>wudazheng</td>
+									<td>卖出</td>
+									<td>18</td>
+									<td>2.08</td>
+									<td>37.44</td>
+									<td>2016-02-24 20:39:46</td>
+									<td>已退回</td>
 								</tr>
 							</tbody>
 						</table>

@@ -118,36 +118,80 @@
 		<div class="content-wrapper">
 			<section class="content-header">
 				<h1>
-					<small>拆分明细</small>
+					<small>CPM状态</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i>用户资料</a></li>
-					<li class="active">拆分明细</li>
+					<li class="active">CPM状态</li>
 				</ol>
 			</section>
 
 			<section class="content">
-
 				<div class="box">
 					<div class="box-header">
-						<h3 class="box-title">拆分明细</h3>
+						<h3 class="box-title">CPM状态</h3>
+					</div>
+					<div class="box-body">
+						<div class="chart" id="line-chart" style="height: 300px;"></div>
+					</div>
+				</div>
+				<div class="box">
+					<div class="box-header">
+						<h3 class="box-title">CPM数据</h3>
 					</div>
 					<div class="box-body">
 						<table class="table table-bordered table-striped">
 							<thead>
 								<tr>
+									<th>上次市价</th>
+									<th>今天市价</th>
+									<th>最高价</th>
+									<th>最低价</th>
+									<th>现价</th>
+									<th>用户CPM</th>
+									<th>今日CPM交易量</th>
+									<th>距离下次上涨剩余</th>
 									<th>日期</th>
-									<th>总发行量</th>
-									<th>拆分倍数</th>
-									<th>拆分后金额</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>2016-01-14 00:00:00</td>
+									<td>3.50</td>
+									<td>3.60</td>
+									<td>4.00</td>
+									<td>2.00</td>
+									<td>3.60</td>
 									<td>200000</td>
-									<td>1</td>
-									<td>2</td>
+									<td>4123</td>
+									<td>24%</td>
+									<td>2016-02-24</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="box">
+					<div class="box-header">
+						<h3 class="box-title">我的CPM</h3>
+					</div>
+					<div class="box-body">
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>买入价</th>
+									<th>当前总CPM</th>
+									<th>CPM现价</th>
+									<th>总市值</th>
+									<th>日期</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>3.60</td>
+									<td>0.00</td>
+									<td>2016-02-24</td>
 								</tr>
 							</tbody>
 						</table>
@@ -164,6 +208,40 @@
 		<strong>Copyright &copy; 2014-2015 <a href="#">LEOS—FUND</a>.
 		</strong> All rights reserved.
 	</footer>
+	
 	<jsp:include page="foot.jsp"></jsp:include>
+	<script>
+      $(function () {
+        "use strict";
+        // LINE CHART
+        var line = new Morris.Line({
+          element: 'line-chart',
+          resize: true,
+          data: [
+            {y: '2016-02-01', item1: 2.10},
+            {y: '2016-02-02', item1: 2.20},
+            {y: '2016-02-03', item1: 2.30},
+            {y: '2016-02-04', item1: 2.40},
+            {y: '2016-02-05', item1: 2.50},
+            {y: '2016-02-06', item1: 2.60},
+            {y: '2016-02-07', item1: 2.70},
+            {y: '2016-02-08', item1: 2.80},
+            {y: '2016-02-09', item1: 2.90},
+            {y: '2016-02-10', item1: 3.00},
+            {y: '2016-02-11', item1: 3.10},
+            {y: '2016-02-12', item1: 3.20},
+            {y: '2016-02-13', item1: 3.30},
+            {y: '2016-02-14', item1: 3.40},
+            {y: '2016-02-15', item1: 3.50},
+            {y: '2016-02-16', item1: 3.60}
+          ],
+          xkey: 'y',
+          ykeys: ['item1'],
+          labels: ['Item 1'],
+          lineColors: ['#E51D1D'],
+          hideHover: 'auto'
+        });
+      });
+    </script>
 </body>
 </html>
