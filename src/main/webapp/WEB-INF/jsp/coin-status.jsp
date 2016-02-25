@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="head.jsp"></jsp:include>
+ 
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 		<header class="main-header">
@@ -210,6 +211,21 @@
 	</footer>
 	
 	<jsp:include page="foot.jsp"></jsp:include>
+	
+    
+    <!-- jQuery 2.1.4 -->
+    <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- Morris.js charts -->
+    <script src="plugins/morris/raphael-min.js"></script>
+    <script src="plugins/morris/morris.min.js"></script>
+    <!-- FastClick -->
+    <script src="plugins/fastclick/fastclick.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/app.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
 	<script>
       $(function () {
         "use strict";
@@ -218,26 +234,26 @@
           element: 'line-chart',
           resize: true,
           data: [
-            {y: '2016-02-01', item1: 2.10},
-            {y: '2016-02-02', item1: 2.20},
-            {y: '2016-02-03', item1: 2.30},
-            {y: '2016-02-04', item1: 2.40},
-            {y: '2016-02-05', item1: 2.50},
-            {y: '2016-02-06', item1: 2.60},
-            {y: '2016-02-07', item1: 2.70},
-            {y: '2016-02-08', item1: 2.80},
-            {y: '2016-02-09', item1: 2.90},
-            {y: '2016-02-10', item1: 3.00},
-            {y: '2016-02-11', item1: 3.10},
-            {y: '2016-02-12', item1: 3.20},
-            {y: '2016-02-13', item1: 3.30},
-            {y: '2016-02-14', item1: 3.40},
-            {y: '2016-02-15', item1: 3.50},
-            {y: '2016-02-16', item1: 3.60}
+            {y: '2016-02-01', price: 2.10},
+            {y: '2016-02-02', price: 2.20},
+            {y: '2016-02-03', price: 2.30},
+            {y: '2016-02-04', price: 2.40},
+            {y: '2016-02-05', price: 2.50},
+            {y: '2016-02-06', price: 2.60},
+            {y: '2016-02-07', price: 2.70},
+            {y: '2016-02-08', price: 2.80},
+            {y: '2016-02-09', price: 2.90},
+            {y: '2016-02-10', price: 3.00},
+            {y: '2016-02-11', price: 3.10},
+            {y: '2016-02-12', price: 3.20},
+            {y: '2016-02-13', price: 3.30},
+            {y: '2016-02-14', price: 3.40},
+            {y: '2016-02-15', price: 3.50},
+            {y: '2016-02-16', price: 3.60}
           ],
           xkey: 'y',
-          ykeys: ['item1'],
-          labels: ['Item 1'],
+          ykeys: ['price'],
+          labels: ['price'],
           lineColors: ['#E51D1D'],
           hideHover: 'auto'
         });

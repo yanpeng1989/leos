@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="head.jsp"></jsp:include>
+ 
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 		<header class="main-header">
@@ -90,10 +91,10 @@
 							class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
-							<li><a href="coin-status.do"><i class="fa fa-circle-o"></i>CPM状态</a></li>
+							<li class="active"><a href="coin-status.do"><i class="fa fa-circle-o"></i>CPM状态</a></li>
 							<li><a href="coin-trade.do"><i class="fa fa-circle-o"></i>CPM交易列表</a></li>
 							<li><a href="coin-trade-status.do"><i class="fa fa-circle-o"></i>CPM交易状态</a></li>
-							<li class="active"><a href="coin-purchase.do"><i class="fa fa-circle-o"></i>购买CPM</a></li>
+							<li><a href="coin-purchase.do"><i class="fa fa-circle-o"></i>购买CPM</a></li>
 							<li><a href="coin-sell.do"><i class="fa fa-circle-o"></i>出售CPM</a></li>
 							<li><a href="k-trade-status.do"><i class="fa fa-circle-o"></i>K币交易状态</a></li>
 							<li><a href="k-purchase.do"><i class="fa fa-circle-o"></i>K币购买</a></li>
@@ -118,36 +119,106 @@
 		<div class="content-wrapper">
 			<section class="content-header">
 				<h1>
-					<small>拆分明细</small>
+					<small>购买CPM</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i>用户资料</a></li>
-					<li class="active">拆分明细</li>
+					<li class="active">购买CPM</li>
 				</ol>
 			</section>
 
 			<section class="content">
-
 				<div class="box">
 					<div class="box-header">
-						<h3 class="box-title">拆分明细</h3>
+						<h3 class="box-title">CPM数据</h3>
 					</div>
 					<div class="box-body">
 						<table class="table table-bordered table-striped">
 							<thead>
 								<tr>
+									<th>上次市价</th>
+									<th>今天市价</th>
+									<th>最高价</th>
+									<th>最低价</th>
+									<th>现价</th>
+									<th>用户CPM</th>
+									<th>今日CPM交易量</th>
+									<th>距离下次上涨剩余</th>
 									<th>日期</th>
-									<th>总发行量</th>
-									<th>拆分倍数</th>
-									<th>拆分后金额</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>2016-01-14 00:00:00</td>
+									<td>3.50</td>
+									<td>3.60</td>
+									<td>4.00</td>
+									<td>2.00</td>
+									<td>3.60</td>
 									<td>200000</td>
-									<td>1</td>
-									<td>2</td>
+									<td>4123</td>
+									<td>24%</td>
+									<td>2016-02-24</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- 
+				<div class="box">
+					<div class="box-header">
+						<h3 class="box-title">申请购买</h3>
+						<br /> <br />
+						<div class="input-group">
+							<span class="input-group-addon">购买数量</span>
+							<input type="text" class="form-control" placeholder="最小数量为1，最大数量不超过电子币数量">
+							<span class="input-group-btn"><button class="btn btn-primary btn-flat">申请</button></span>
+						</div>
+					</div>
+					<div class="box-body">
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>K币($)</th>
+									<th>激活币($)</th>
+									<th>电子币($)</th>
+									<th>保管金($)</th>
+									<th>CPM</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>200</td>
+									<td>100</td>
+									<td style="color: red;">500</td>
+									<td>20</td>
+									<td>100</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div> -->
+				<div class="box">
+					<div class="box-header">
+						<h3 class="box-title">我的交易</h3>
+					</div>
+					<div class="box-body">
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>购买日期</th>
+									<th>成交日期</th>
+									<th>排队时间</th>
+									<th>使用电子币</th>
+									<th>状态</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>2016-02-24</td>
+									<td>2016-04-15</td>
+									<td>23天</td>
+									<td>102</td>
+									<td>排队中</td>
 								</tr>
 							</tbody>
 						</table>
@@ -164,6 +235,7 @@
 		<strong>Copyright &copy; 2014-2015 <a href="#">LEOS—FUND</a>.
 		</strong> All rights reserved.
 	</footer>
+	
 	<jsp:include page="foot.jsp"></jsp:include>
 </body>
 </html>
