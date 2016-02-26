@@ -130,5 +130,9 @@ public class HomeController {
 	public String faq() {
 		return "faq";
 	}
+	@RequestMapping(value = "login")
+	public String login() {
+		return "login";
+	}
 
 }
