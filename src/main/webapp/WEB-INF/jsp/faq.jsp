@@ -7,9 +7,9 @@
 			<a href="#" class="logo"> <span class="logo-mini"><b>LE</b>OS</span> <span class="logo-lg"><b>量子货币</b>LEOS</span>
 			</a>
 			<nav class="navbar navbar-static-top" role="navigation">
-				<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            		<span class="sr-only">Toggle navigation</span>
-          		</a>
+				<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"> <span class="sr-only">Toggle
+						navigation</span>
+				</a>
 				<div class="navbar-custom-menu">
 					<div class="navbar-custom-menu">
 						<ul class="nav navbar-nav">
@@ -118,39 +118,34 @@
 		<div class="content-wrapper">
 			<section class="content-header">
 				<h1>
-					<small>拆分明细</small>
+					<small>投诉建议</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i>用户资料</a></li>
-					<li class="active">拆分明细</li>
+					<li class="active">投诉建议</li>
 				</ol>
 			</section>
 
 			<section class="content">
-
 				<div class="box">
 					<div class="box-header">
-						<h3 class="box-title">拆分明细</h3>
+						<h3 class="box-title">投诉建议</h3>
 					</div>
 					<div class="box-body">
-						<table class="table table-bordered table-striped">
-							<thead>
-								<tr>
-									<th>日期</th>
-									<th>总发行量</th>
-									<th>拆分倍数</th>
-									<th>拆分后金额</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>2016-01-14 00:00:00</td>
-									<td>200000</td>
-									<td>1</td>
-									<td>2</td>
-								</tr>
-							</tbody>
-						</table>
+						<div class="box-body">
+							<div class="input-group">
+								<span class="input-group-addon">标题</span> <input type="text" class="form-control">
+							</div>
+							<br />
+							<div class="input-group">
+								<span class="input-group-addon">内容</span> <input type="text" class="form-control" style="height: 300px">
+							</div>
+						</div>
+					</div>
+					<div class="box">
+						<div class="box-body">
+							<button class="btn btn-primary btn-block btn-flat">提交</button>
+						</div>
 					</div>
 				</div>
 			</section>

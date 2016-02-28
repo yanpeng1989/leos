@@ -118,11 +118,11 @@
 		<div class="content-wrapper">
 			<section class="content-header">
 				<h1>
-					<small>拆分明细</small>
+					<small>金额变动日志</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i>用户资料</a></li>
-					<li class="active">拆分明细</li>
+					<li class="active">金额变动日志</li>
 				</ol>
 			</section>
 
@@ -130,26 +130,77 @@
 
 				<div class="box">
 					<div class="box-header">
-						<h3 class="box-title">拆分明细</h3>
+						<h3 class="box-title">金额变动日志</h3>
+						<br /> <br />
+						<div class="input-group">
+							<span class="input-group-addon">日期</span>
+							<select class="form-control">
+                        		<option>最近15天</option>
+                        		<option>最近30天</option>
+                        		<option>最近60天</option>
+                        		<option>全部记录</option>
+                      		</select>
+							<span class="input-group-btn"><button class="btn btn-primary btn-flat">查看</button></span>
+						</div>
 					</div>
 					<div class="box-body">
 						<table class="table table-bordered table-striped">
 							<thead>
 								<tr>
 									<th>日期</th>
-									<th>总发行量</th>
-									<th>拆分倍数</th>
-									<th>拆分后金额</th>
+									<th>推荐奖金</th>
+									<th>对碰奖金</th>
+									<th>领导奖金</th>
+									<th>见点奖金</th>
+									<th>报单奖金</th>
+									<th>总额</th>
+									<th>详情</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>2016-01-14 00:00:00</td>
-									<td>200000</td>
-									<td>1</td>
-									<td>2</td>
+									<td>2016-02-24</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td><a href="#">查看</a></td>
+								</tr>
+								<tr>
+									<td>2016-02-23</td>
+									<td>10.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>10.00</td>
+									<td><a href="#">查看</a></td>
+								</tr>
+								<tr>
+									<td>2016-02-22</td>
+									<td>20.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>20.00</td>
+									<td><a href="#">查看</a></td>
 								</tr>
 							</tbody>
+							<tfoot>
+                      			<tr>
+                        			<th>总额</th>
+                        			<th>30.00</th>
+                        			<th>0.00</th>
+                        			<th>0.00</th>
+                        			<th>0.00</th>
+                        			<th>0.00</th>
+                        			<th>30.00</th>
+                        			<th></th>
+                      			</tr>
+                    		</tfoot>
 						</table>
 					</div>
 				</div>

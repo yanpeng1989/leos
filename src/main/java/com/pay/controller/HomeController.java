@@ -35,7 +35,10 @@ public class HomeController {
 	public String numbership() {
 		return "numbership";
 	}
-
+	@RequestMapping(value = "recommend-map")
+	public String recommend_map() {
+		return "recommend-map";
+	}
 	@RequestMapping(value = "recommend-register")
 	public String recommend_register() {
 		return "recommend-register";
@@ -130,9 +133,15 @@ public class HomeController {
 	public String faq() {
 		return "faq";
 	}
+
 	@RequestMapping(value = "login")
 	public String login() {
 		return "login";
+	}
+
+	@RequestMapping(value = "test")
+	public String test() {
+		return "test";
 	}
 
 }

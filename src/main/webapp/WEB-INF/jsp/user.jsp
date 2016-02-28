@@ -150,7 +150,7 @@
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">真实姓名</span> 
-							<input type="text" class="form-control" value="冼锦彬" disabled>
+							<input type="text" class="form-control" value="杜涛" disabled>
 						</div>
 						<br/>
 						<div class="input-group">
@@ -171,7 +171,7 @@
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">开户姓名</span> 
-							<input type="text" class="form-control" value="冼锦彬" disabled>
+							<input type="text" class="form-control" value="杜涛" disabled>
 						</div>
 						<br/>
 						<div class="input-group">
