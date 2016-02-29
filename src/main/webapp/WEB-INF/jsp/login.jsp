@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>量子货币</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -32,7 +30,7 @@
 		<div class="login-box-body">
 			<p class="login-box-msg">电子货币交易系统</p>
 			<div class="form-group has-feedback">
-				<input id="user" type="text" class="form-control" placeholder="账号"> <span
+				<input id="username" type="text" class="form-control" placeholder="账号"> <span
 					class="glyphicon glyphicon-user form-control-feedback"></span>
 			</div>
 			<div class="form-group has-feedback">
@@ -82,10 +80,10 @@
 	<script type="text/javascript">
 		$(function(){
 			$('#login').click(function(){
-				var user=$("#user").val();
+				var username=$("#username").val();
 				var password=$("#password").val();
 				var captcha=$("#captcha").val();
-				if(user==''){
+				if(username==''){
 					show_model("请输入用户名");
 					return;
 				}else if(password==''){
@@ -95,7 +93,7 @@
 					show_model("请输入验证码");
 					return;
 				}
-				var params='{"user":"'+user+'","password":"'+password+'","captcha":"'+captcha+'"}';
+				var params='{"username":"'+username+'","password":"'+password+'","captcha":"'+captcha+'"}';
 				$.ajax({
 					type : "POST",
 					contentType : "application/json;",

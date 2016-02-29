@@ -5,7 +5,9 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,19 +15,35 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.pay.service.UserService;
 
 @Controller
-@SessionAttributes({ "user" })
+@SessionAttributes({ "username", "realname", "password" })
 public class AjaxContrallor {
+	@Autowired
+	public UserService userService;
+
 	@RequestMapping(value = "login-ajax", method = RequestMethod.POST)
 	@ResponseBody
-	public String login_ajax(HttpSession session, @RequestBody Map<String, String> params) {
-		String user = params.get("user");
+	public String login_ajax(HttpSession session, @RequestBody Map<String, String> params, Model model) {
+		String username = params.get("username");
 		String password = params.get("password");
 		String captcha = params.get("captcha");
 		HashMap<String, String> result_map = new HashMap<String, String>();
 		if (captcha.equals(session.getAttribute("kaptchaExpected"))) {
-			
+			HashMap<String, String> user = userService.queryUserByPassword(username, password);
+			if (user == null) {
+				result_map.put("result", "user_error");
+			} else {
+				if (user.get("valid").equals("无效")) {
+					result_map.put("result", "user_invalid");
+				} else {
+					model.addAttribute("username", user.get("username"));
+					model.addAttribute("realname", user.get("realname"));
+					model.addAttribute("password", user.get("password"));
+					result_map.put("result", "success");
+				}
+			}
 		} else {
 			result_map.put("result", "captcha_invalid");
 		}

@@ -76,7 +76,7 @@
 					</a>
 						<ul class="treeview-menu">
 							<li><a href="update.do"><i class="fa fa-circle-o"></i>账户升级</a></li>
-							<li><a href="recommend-register.do"><i class="fa fa-circle-o"></i>新会员注册列表</a></li>
+							<li><a href="recommend-map.do"><i class="fa fa-circle-o"></i>新会员注册列表</a></li>
 							<li><a href="recommend.do"><i class="fa fa-circle-o"></i>推荐会员列表</a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务明细</span> <i
@@ -139,7 +139,7 @@
 												<h5 class="widget-user-desc">中国区</h5>
 											</div>
 											<div class="widget-user-image">
-												<img class="img-circle" src="/leos/dist/img/user1-128x128.jpg" alt="User Avatar">
+												<img class="img-circle" src="dist/img/user1-128x128.jpg" alt="User Avatar">
 											</div>
 											<div class="box-footer">
 												<div class="row">

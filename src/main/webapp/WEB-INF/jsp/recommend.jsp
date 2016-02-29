@@ -75,7 +75,7 @@
 					</a>
 						<ul class="treeview-menu">
 							<li><a href="update.do"><i class="fa fa-circle-o"></i>账户升级</a></li>
-							<li><a href="recommend-register.do"><i class="fa fa-circle-o"></i>新会员注册列表</a></li>
+							<li><a href="recommend-map.do"><i class="fa fa-circle-o"></i>新会员注册列表</a></li>
 							<li class="active"><a href="recommend.do"><i class="fa fa-circle-o"></i>推荐会员列表</a></li>
 						</ul></li>
 					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>业务明细</span> <i

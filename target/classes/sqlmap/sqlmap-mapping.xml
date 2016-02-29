@@ -5,4 +5,7 @@
 
 <mapper namespace="com.pay.interfaces">
 	<cache />
+	<select id="queryUserByPassword" resultType="User" parameterType="map">
+		select * from user where username=#{username} and password=#{password}
+	</select>
 </mapper>
