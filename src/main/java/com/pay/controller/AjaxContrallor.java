@@ -32,7 +32,7 @@ public class AjaxContrallor {
 		HashMap<String, String> result_map = new HashMap<String, String>();
 		if (captcha.equals(session.getAttribute("kaptchaExpected"))) {
 			HashMap<String, String> user = userService.queryUserByPassword(username, password);
-			if (user == null) {
+			if (user == null ? true : user.size() == 0) {
 				result_map.put("result", "user_error");
 			} else {
 				if (user.get("valid").equals("无效")) {
