@@ -1,6 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="head.jsp"></jsp:include>
+<script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- Bootstrap 3.3.5 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 		<header class="main-header">
@@ -143,14 +146,14 @@
 					<div class="box-body">
 						<div class="input-group">
 							<span class="input-group-addon">节点</span> 
-							<input type="text" class="form-control" value="杜子美">
+							<input type="text" id="father" class="form-control">
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">位置</span> 
-							<select class="form-control">
-                        		<option>左侧</option>
-                        		<option>右侧</option>
+							<select id="son" class="form-control">
+                        		<option value="left">左侧</option>
+                        		<option value="right">右侧</option>
                       		</select>
 						</div>
 					</div>
@@ -158,7 +161,7 @@
 				
 					<div class="box">
 						<div class="box-body">
-							<button class="btn btn-primary btn-block btn-flat">注册</button>
+							<button id="register" class="btn btn-primary btn-block btn-flat">注册</button>
 						</div>
 					</div>
 			</section>
@@ -260,6 +263,41 @@
 		<strong>Copyright &copy; 2014-2015 <a href="#">LEOS—FUND</a>.
 		</strong> All rights reserved.
 	</footer>
-	<jsp:include page="foot.jsp"></jsp:include>
+	<!-- 模态框 Begin-->
+	<div id="alert_msg" class="modal fade" >
+  		<div class="modal-dialog">
+   			<div class="modal-content">
+      			<div class="modal-header">
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       				<h4 class="modal-title" style="font-family: 微软雅黑;">登陆提示</h4>
+      			</div>
+      		<div class="modal-body">
+        		<p id="alert_data" style="font-family: 微软雅黑;">&hellip;</p>
+      		</div>
+      		<div class="modal-footer">
+        		<button type="button" class="btn btn-primary btn-flat" data-dismiss="modal">关闭</button>
+      		</div>
+    		</div>
+  		</div>
+	</div>
+	<script type="text/javascript">
+		function show_model(content) {
+			$("#alert_data").html(content);
+			$('#alert_msg').modal('show');
+			}
+	</script>
+	<script type="text/javascript">
+		$(function(){
+			$("#register").click(function(){
+				var father=$("#father").val();
+				var son=$("#son").val();
+				if(father==''){
+					show_model("请输入接点");
+					return;
+				}
+				window.location.href=window.location.href = "../leos/recommend-register.do?father="+father+"&son="+son;
+			});
+		});
+	</script>
 </body>
 </html>

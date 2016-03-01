@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pay.dao.UserImpl;
+import com.pay.model.Bank;
 import com.pay.model.User;
 import com.pay.model.Wallet;
 
@@ -38,6 +39,15 @@ public class UserService {
 		result.put("e_coin", wallet.getE_coin());
 		result.put("k_coin", wallet.getK_coin());
 		result.put("sum_bonus", wallet.getSum_bonus());
+		return result;
+	}
+
+	public HashMap<String, Object> queryBankByUsername(String username) {
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		Bank bank = userImpl.queryBankByUsername(username);
+		result.put("a_coin", bank.getBank_name());
+		result.put("c_coin", bank.getName());
+		result.put("cpm_coin", bank.getBank_id());
 		return result;
 	}
 }

@@ -72,7 +72,7 @@
         		<p id="alert_data" style="font-family: 微软雅黑;">&hellip;</p>
       		</div>
       		<div class="modal-footer">
-        		<button id="login" type="button" class="btn btn-primary btn-flat" data-dismiss="modal">关闭</button>
+        		<button type="button" class="btn btn-primary btn-flat" data-dismiss="modal">关闭</button>
       		</div>
     		</div>
   		</div>

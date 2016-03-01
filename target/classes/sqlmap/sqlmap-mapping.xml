@@ -5,10 +5,16 @@
 
 <mapper namespace="com.pay.interfaces">
 	<cache />
+	<!-- 登陆 -->
 	<select id="queryUserByPassword" resultType="User" parameterType="map">
 		select * from user where username=#{username} and password=#{password}
 	</select>
+	<!-- 钱包信息 -->
 	<select id="queryWalletByUsername" resultType="Wallet" parameterType="map">
 		select * from wallet where username=#{username}
+	</select>
+	<!-- 银行卡信息 -->
+	<select id="queryBankByUsername" resultType="Bank" parameterType="map">
+		select * from bank where username=#{username}
 	</select>
 </mapper>
