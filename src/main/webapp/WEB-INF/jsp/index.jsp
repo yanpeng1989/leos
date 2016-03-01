@@ -15,13 +15,13 @@
 					<div class="navbar-custom-menu">
 						<ul class="nav navbar-nav">
 							<li class="dropdown user user-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img
-									src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> <span class="hidden-xs">杜涛</span>
+									src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> <span class="hidden-xs">${realname}</span>
 							</a>
 								<ul class="dropdown-menu">
 									<!-- User image -->
 									<li class="user-header"><img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 										<p>
-											一级会员 <small>中国</small>
+											${level} <small>中国</small>
 										</p></li>
 									<!-- Menu Body -->
 									<li class="user-body">
@@ -55,7 +55,7 @@
 						<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 					</div>
 					<div class="pull-left info">
-						<p>杜涛</p>
+						<p>${realname}</p>
 						<a href="#"><i class="fa fa-circle text-success"></i>欢迎您！</a>
 					</div>
 				</div>
@@ -135,7 +135,7 @@
 									<div class="col-md-12">
 										<div class="box box-widget widget-user">
 											<div class="widget-user-header bg-aqua-active">
-												<h3 class="widget-user-username">一级会员</h3>
+												<h3 class="widget-user-username">${level}</h3>
 												<h5 class="widget-user-desc">中国区</h5>
 											</div>
 											<div class="widget-user-image">
@@ -146,37 +146,37 @@
 													<div class="col-sm-2 border-right">
 														<div class="description-block">
 															<h5 class="description-header">总奖金($)</h5>
-															<span class="description-text">3200</span>
+															<span class="description-text">${wallet.sum_bonus}</span>
 														</div>
 													</div>
 													<div class="col-sm-2 border-right">
 														<div class="description-block">
 															<h5 class="description-header">K币($)</h5>
-															<span class="description-text">200</span>
+															<span class="description-text">${wallet.k_coin}</span>
 														</div>
 													</div>
 													<div class="col-sm-2 border-right">
 														<div class="description-block">
 															<h5 class="description-header">激活币($)</h5>
-															<span class="description-text">100</span>
+															<span class="description-text">${wallet.a_coin}</span>
 														</div>
 													</div>
 													<div class="col-sm-2 border-right">
 														<div class="description-block">
 															<h5 class="description-header">电子币($)</h5>
-															<span class="description-text">500</span>
+															<span class="description-text">${wallet.e_coin}</span>
 														</div>
 													</div>
 													<div class="col-sm-2 border-right">
 														<div class="description-block">
 															<h5 class="description-header">保管金($)</h5>
-															<span class="description-text">20</span>
+															<span class="description-text">${wallet.c_coin}</span>
 														</div>
 													</div>
 													<div class="col-sm-2">
 														<div class="description-block">
 															<h5 class="description-header">CPM</h5>
-															<span class="description-text">100</span>
+															<span class="description-text">${wallet.cpm_coin}</span>
 														</div>
 													</div>
 												</div>

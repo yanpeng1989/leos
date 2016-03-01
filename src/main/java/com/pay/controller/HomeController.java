@@ -19,9 +19,12 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
+			model.addAttribute("wallet", userService.queryWalletByUsername(username));
 			return "index";
 		}
 	}
@@ -31,9 +34,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "user";
 		}
 	}
@@ -43,9 +48,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "password";
 		}
 	}
@@ -55,9 +62,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "binding";
 		}
 	}
@@ -67,9 +76,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "update";
 		}
 	}
@@ -79,9 +90,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "numbership";
 		}
 	}
@@ -91,9 +104,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "recommend-map";
 		}
 	}
@@ -103,9 +118,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "recommend-register";
 		}
 	}
@@ -115,9 +132,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "recommend";
 		}
 	}
@@ -127,9 +146,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "bonus";
 		}
 	}
@@ -139,9 +160,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "pair";
 		}
 	}
@@ -151,9 +174,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "send";
 		}
 	}
@@ -163,9 +188,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "coin-status";
 		}
 	}
@@ -175,9 +202,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "coin-trade";
 		}
 	}
@@ -187,9 +216,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "coin-trade-status";
 		}
 	}
@@ -199,9 +230,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "coin-purchase";
 		}
 	}
@@ -211,9 +244,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "coin-sell";
 		}
 	}
@@ -223,9 +258,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "k-trade-status";
 		}
 	}
@@ -235,9 +272,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "k-purchase";
 		}
 	}
@@ -247,9 +286,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "k-sell";
 		}
 	}
@@ -259,9 +300,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "active-coin-transfer";
 		}
 	}
@@ -271,9 +314,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "custody-coin-transfer";
 		}
 	}
@@ -283,9 +328,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "coin-to-active";
 		}
 	}
@@ -295,9 +342,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "note";
 		}
 	}
@@ -307,9 +356,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "log";
 		}
 	}
@@ -319,9 +370,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "faq";
 		}
 	}
@@ -331,9 +384,11 @@ public class HomeController {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
-			model.addAttribute("realname", realname);
 			return "login";
 		} else {
+			model.addAttribute("realname", realname);
+			String level = String.valueOf(session.getAttribute("level"));
+			model.addAttribute("level", level);
 			return "login";
 		}
 	}

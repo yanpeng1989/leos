@@ -8,4 +8,7 @@
 	<select id="queryUserByPassword" resultType="User" parameterType="map">
 		select * from user where username=#{username} and password=#{password}
 	</select>
+	<select id="queryWalletByUsername" resultType="Wallet" parameterType="map">
+		select * from wallet where username=#{username}
+	</select>
 </mapper>

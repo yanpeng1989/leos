@@ -15,13 +15,13 @@
 					<div class="navbar-custom-menu">
 						<ul class="nav navbar-nav">
 							<li class="dropdown user user-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img
-									src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> <span class="hidden-xs">杜涛</span>
+									src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> <span class="hidden-xs">${realname}</span>
 							</a>
 								<ul class="dropdown-menu">
 									<!-- User image -->
 									<li class="user-header"><img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 										<p>
-											一级会员 <small>中国</small>
+											${level}<small>中国</small>
 										</p></li>
 									<!-- Menu Body -->
 									<li class="user-body">
@@ -55,7 +55,7 @@
 						<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 					</div>
 					<div class="pull-left info">
-						<p>杜涛</p>
+						<p>${realname}</p>
 						<a href="#"><i class="fa fa-circle text-success"></i>欢迎您！</a>
 					</div>
 				</div>

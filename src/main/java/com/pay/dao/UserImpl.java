@@ -8,13 +8,14 @@ import org.springframework.stereotype.Repository;
 
 import com.pay.interfaces.UserInterface;
 import com.pay.model.User;
+import com.pay.model.Wallet;
 
 @Repository
 public class UserImpl implements UserInterface {
 	@Autowired
 	public SqlSessionTemplate sqlSessionTemplate;
 
-	//用户登陆
+	// 用户登陆
 	@Override
 	public User queryUserByPassword(String username, String password) {
 		HashMap<String, String> parameter = new HashMap<String, String>();
@@ -22,5 +23,14 @@ public class UserImpl implements UserInterface {
 		parameter.put("password", password);
 		User user = sqlSessionTemplate.selectOne("queryUserByPassword", parameter);
 		return user;
+	}
+
+	// 用户钱包信息
+	@Override
+	public Wallet queryWalletByUsername(String username) {
+		HashMap<String, String> parameter = new HashMap<String, String>();
+		parameter.put("username", username);
+		Wallet wallet = sqlSessionTemplate.selectOne("queryWalletByUsername", parameter);
+		return wallet;
 	}
 }

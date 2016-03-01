@@ -3,6 +3,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="user" type="com.pay.model.User"/>
+		<typeAlias alias="wallet" type="com.pay.model.Wallet"/>
 	</typeAliases>
 	
 	<!-- 指定映射文件 -->

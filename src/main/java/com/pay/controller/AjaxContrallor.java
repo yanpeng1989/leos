@@ -18,7 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pay.service.UserService;
 
 @Controller
-@SessionAttributes({ "username", "realname", "password" })
+@SessionAttributes({ "username", "realname", "password", "level" })
 public class AjaxContrallor {
 	@Autowired
 	public UserService userService;
@@ -40,6 +40,7 @@ public class AjaxContrallor {
 				} else {
 					model.addAttribute("username", user.get("username"));
 					model.addAttribute("realname", user.get("realname"));
+					model.addAttribute("level", user.get("level"));
 					model.addAttribute("password", user.get("password"));
 					result_map.put("result", "success");
 				}
