@@ -16,4 +16,8 @@ public interface UserInterface {
 	public void insertUser(User user);
 
 	public HashMap<String, Object> queryUserByUsername(String username);
+
+	public void updateUserRightByusername(String username);
+
+	public void updateUserLeftByusername(String username);
 }

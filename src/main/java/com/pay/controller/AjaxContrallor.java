@@ -60,19 +60,7 @@ public class AjaxContrallor {
 	@RequestMapping(value = "recommend-register-ajax", method = RequestMethod.POST)
 	@ResponseBody
 	public String recommend_register_ajax(HttpSession session, @RequestBody Map<String, String> params, Model model) {
-		String level = params.get("level");
-		String recommend_username = params.get("recommend_username");
-		String father = params.get("father");
-		String position = params.get("position");
-		String place = params.get("place");
-		String username = params.get("username");
-		String password_1 = params.get("password_1");
-		String password_2 = params.get("password_2");
-		String pay_1 = params.get("pay_1");
-		String pay_2 = params.get("pay_2");
-		String realname = params.get("realname");
-		String card_id = params.get("card_id");
-		String tel = params.get("tel");
+		
 		
 		HashMap<String, String> result_map = new HashMap<String, String>();
 		

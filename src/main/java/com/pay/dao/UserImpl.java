@@ -44,17 +44,33 @@ public class UserImpl implements UserInterface {
 		return bank;
 	}
 
+	// 插入新用户
 	@Override
-	public String insertUser(User user) {
-		String username = user.getUsername();
+	public void insertUser(User user) {
+		sqlSessionTemplate.insert("insertUser", user);
+	}
+
+	// 基于用户登录名查询用户
+	@Override
+	public HashMap<String, Object> queryUserByUsername(String username) {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("username", username);
-		HashMap<String, String> map = sqlSessionTemplate.selectOne("", params);
-		if (map.size() > 0) {
-			return "exist";
-		} else {
-			sqlSessionTemplate.insert("insertUser", user);
-			return "success";
-		}
+		return sqlSessionTemplate.selectOne("queryUserByUsername", params);
+	}
+
+	// 向父节点左侧插入孩子
+	@Override
+	public void updateUserRightByusername(String username) {
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("username", username);
+		sqlSessionTemplate.update("updateUserRightByusername", params);
+	}
+
+	// 向父节点右侧插入孩子
+	@Override
+	public void updateUserLeftByusername(String username) {
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("username", username);
+		sqlSessionTemplate.update("updateUserLeftByusername", params);
 	}
 }

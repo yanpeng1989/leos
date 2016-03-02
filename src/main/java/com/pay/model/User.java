@@ -19,6 +19,7 @@ public class User implements Serializable {
 	private String left;
 	private String right;
 	private String level;
+	private String place;
 	private String key;
 	private String valid;
 
@@ -118,6 +119,14 @@ public class User implements Serializable {
 
 	public void setLevel(String level) {
 		this.level = level;
+	}
+
+	public String getPlace() {
+		return place;
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
 	}
 
 	public String getKey() {

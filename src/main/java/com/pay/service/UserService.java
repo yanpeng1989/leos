@@ -1,5 +1,6 @@
 package com.pay.service;
 
+import java.util.Calendar;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,7 @@ public class UserService {
 		return result;
 	}
 
+	// 查询资金信息
 	public HashMap<String, Object> queryBankByUsername(String username) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		Bank bank = userImpl.queryBankByUsername(username);
@@ -49,5 +51,58 @@ public class UserService {
 		result.put("c_coin", bank.getName());
 		result.put("cpm_coin", bank.getBank_id());
 		return result;
-	}	
+	}
+
+	// 推荐注册用户
+	public String insertUser(HashMap<String, String> params) {
+		String username = params.get("username");
+		if (userImpl.queryUserByUsername(username).size() > 0) {
+			return "exit";
+		} else {
+			Calendar calendar = Calendar.getInstance();
+			String head = Long.toString(calendar.getTimeInMillis());
+			String id = head;
+			String level = params.get("level");
+			String recommend_username = params.get("recommend_username");
+			String father = params.get("father");
+			String place = params.get("place");
+			String password = params.get("password_1");
+			String pay = params.get("pay_1");
+			String realname = params.get("realname");
+			String card_id = params.get("card_id");
+			String tel = params.get("tel");
+			// 基于父节点计算出子节点ID
+			String position = params.get("position");
+			HashMap<String, Object> leader = userImpl.queryUserByUsername(father);
+			HashMap<String, Object> recommend = userImpl.queryUserByUsername(recommend_username);
+			String leader_id = leader.get("id").toString();
+			if (leader_id.length() > 13) {
+				int tail = Integer.parseInt(leader_id.substring(13, leader_id.length()));
+				if (position.equals("左侧")) {
+					id = head + Integer.toString(tail * 2);
+				} else {
+					id = head + Integer.toString(tail * 2 + 1);
+				}
+			}
+			User new_user = new User();
+			new_user.setId(id);
+			new_user.setCard_id(card_id);
+			new_user.setFather(father);
+			new_user.setKey(recommend.get("key").toString() + ";" + id);
+			new_user.setPassword(password);
+			new_user.setPay(pay);
+			new_user.setRealname(realname);
+			new_user.setLevel(level);
+			new_user.setTel(tel);
+			new_user.setUsername(username);
+			new_user.setPlace(place);
+			userImpl.insertUser(new_user);
+			if (position.equals("左侧")) {
+				userImpl.updateUserLeftByusername(father);
+			} else {
+				userImpl.updateUserRightByusername(father);
+			}
+			return "success";
+		}
+	}
 }
