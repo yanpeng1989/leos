@@ -49,5 +49,5 @@ public class UserService {
 		result.put("c_coin", bank.getName());
 		result.put("cpm_coin", bank.getBank_id());
 		return result;
-	}
+	}	
 }

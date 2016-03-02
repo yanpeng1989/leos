@@ -43,4 +43,18 @@ public class UserImpl implements UserInterface {
 		Bank bank = sqlSessionTemplate.selectOne("queryBankByUsername", parameter);
 		return bank;
 	}
+
+	@Override
+	public String insertUser(User user) {
+		String username = user.getUsername();
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("username", username);
+		HashMap<String, String> map = sqlSessionTemplate.selectOne("", params);
+		if (map.size() > 0) {
+			return "exist";
+		} else {
+			sqlSessionTemplate.insert("insertUser", user);
+			return "success";
+		}
+	}
 }

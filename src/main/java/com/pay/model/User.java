@@ -13,7 +13,7 @@ public class User implements Serializable {
 	private String password;
 	private String pay;
 	private String realname;
-
+	private String card_id;
 	private String tel;
 	private String father;
 	private String left;
@@ -70,6 +70,14 @@ public class User implements Serializable {
 
 	public void setRealname(String realname) {
 		this.realname = realname;
+	}
+
+	public String getCard_id() {
+		return card_id;
+	}
+
+	public void setCard_id(String card_id) {
+		this.card_id = card_id;
 	}
 
 	public String getTel() {

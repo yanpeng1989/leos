@@ -151,7 +151,7 @@
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">位置</span> 
-							<select id="son" class="form-control">
+							<select id="position" class="form-control">
                         		<option value="left">左侧</option>
                         		<option value="right">右侧</option>
                       		</select>
@@ -269,7 +269,7 @@
    			<div class="modal-content">
       			<div class="modal-header">
         			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-       				<h4 class="modal-title" style="font-family: 微软雅黑;">登陆提示</h4>
+       				<h4 class="modal-title" style="font-family: 微软雅黑;">提示</h4>
       			</div>
       		<div class="modal-body">
         		<p id="alert_data" style="font-family: 微软雅黑;">&hellip;</p>
@@ -290,12 +290,12 @@
 		$(function(){
 			$("#register").click(function(){
 				var father=$("#father").val();
-				var son=$("#son").val();
+				var position=$("#position").val();
 				if(father==''){
 					show_model("请输入接点");
 					return;
 				}
-				window.location.href=window.location.href = "../leos/recommend-register.do?father="+father+"&son="+son;
+				window.location.href=window.location.href = "../leos/recommend-register.do?father="+father+"&position="+position;
 			});
 		});
 	</script>

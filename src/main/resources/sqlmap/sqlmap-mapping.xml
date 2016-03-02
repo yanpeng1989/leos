@@ -17,4 +17,12 @@
 	<select id="queryBankByUsername" resultType="Bank" parameterType="map">
 		select * from bank where username=#{username}
 	</select>
+	<!-- 检测用户名是否被使用 -->
+	<select id="queryUserByUsername" resultType="Bank" parameterType="map">
+		select * from user where username=#{username}
+	</select>
+	<!-- 注册新用户 -->
+	<insert id="insertUser" parameterType="User">
+		INSERT INTO user(id,username,password,pay,realname,card_id,tel,father,left,right,level,key,valid) VALUES (#{id},#{username},#{password},#{pay},#{realname},#{card_id},#{tel},#{father},#{left},#{right},#{level},#{key},#{valid})
+	</insert>
 </mapper>

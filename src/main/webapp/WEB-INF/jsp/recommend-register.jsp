@@ -1,6 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="head.jsp"></jsp:include>
+<script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 		<header class="main-header">
@@ -135,31 +137,29 @@
 					<div class="box-body">
 						<div class="input-group">
 							<span class="input-group-addon">会员级别</span> 
-							<select class="form-control">
-                        		<option>一级会员</option>
-                        		<option>二级会员</option>
-                        		<option>三级会员</option>
-                        		<option>四级会员</option>
-                        		<option>五级会员</option>
+							<select id="level" class="form-control">
+                        		<option value="一级会员">一级会员</option>
+                        		<option value="二级会员">二级会员</option>
+                        		<option value="三级会员">三级会员</option>
+                        		<option value="四级会员">四级会员</option>
+                        		<option value="五级会员">五级会员</option>
                       		</select>
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">推&nbsp;&nbsp;荐&nbsp;&nbsp;人</span> 
-							<input type="text" class="form-control" value="xjb1991">
+							<input id="recommend_username" type="text" class="form-control" value="${username}" disabled>
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">节&nbsp;&nbsp;点&nbsp;&nbsp;人</span> 
-							<input type="text" class="form-control" value="xjb1991">
+							<input id="father" type="text" class="form-control" value="${father}" disabled>
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">位&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;置</span> 
-							<select class="form-control">
-                        		<option>左侧</option>
-                        		<option>右侧</option>
-                      		</select>
+							<input id="son" type="hidden" class="form-control" value="${position}">
+							<input id="position" type="text" class="form-control" id="position" disabled>
 						</div>
 					</div>
 				</div>
@@ -170,38 +170,38 @@
 					<div class="box-body">
 						<div class="input-group">
 							<span class="input-group-addon">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区</span> 
-							<select class="form-control">
-                        		<option>亚太</option>
-                        		<option>欧洲</option>
-                        		<option>阿联酋</option>
-                        		<option>南美</option>
-                        		<option>北美</option>
+							<select id="place" class="form-control">
+                        		<option value="亚太">亚太</option>
+                        		<option value="欧洲">欧洲</option>
+                        		<option value="阿联酋">阿联酋</option>
+                        		<option value="南美">南美</option>
+                        		<option value="北美">北美</option>
                       		</select>
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">用&nbsp;&nbsp;户&nbsp;&nbsp;名</span> 
-							<input type="text" class="form-control">
+							<input id="username" type="text" class="form-control">
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">登陆密码</span> 
-							<input type="text" class="form-control">
+							<input id="password_1" type="text" class="form-control">
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">确认密码</span> 
-							<input type="text" class="form-control">
+							<input id="password_2" type="text" class="form-control">
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">安全密码</span> 
-							<input type="text" class="form-control">
+							<input id="pay_1" type="text" class="form-control">
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">确认密码</span> 
-							<input type="text" class="form-control">
+							<input id="pay_2" type="text" class="form-control">
 						</div>
 						</div>
 					</div>
@@ -212,28 +212,23 @@
 						<div class="box-body">
 						<div class="input-group">
 							<span class="input-group-addon">真实姓名</span> 
-							<input type="text" class="form-control">
-						</div>
-						<br/>
-						<div class="input-group">
-							<span class="input-group-addon">商务中心</span> 
-							<input type="text" class="form-control">
+							<input id="realname" type="text" class="form-control">
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">身&nbsp;&nbsp;份&nbsp;&nbsp;证</span> 
-							<input type="text" class="form-control">
+							<input id="card_id" type="text" class="form-control">
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机</span> 
-							<input type="text" class="form-control">
+							<input id="tel" type="text" class="form-control">
 						</div>
 					</div>
 					</div>
 					<div class="box">
 						<div class="box-body">
-							<button class="btn btn-primary btn-block btn-flat">确认申请</button>
+							<button id="apply" class="btn btn-primary btn-block btn-flat">确认申请</button>
 						</div>
 					</div>
 			</section>
@@ -247,6 +242,106 @@
 		<strong>Copyright &copy; 2014-2015 <a href="#">LEOS—FUND</a>.
 		</strong> All rights reserved.
 	</footer>
-	<jsp:include page="foot.jsp"></jsp:include>
+	<script type="text/javascript">
+		var son=$("#son").val();
+		if(son=='right'){
+			$("#position").attr('value','右侧');
+		}else{
+			$("#position").attr('value','左侧');
+		}
+	</script>
+	<!-- 模态框 Begin-->
+	<div id="alert_msg" class="modal fade" >
+  		<div class="modal-dialog">
+   			<div class="modal-content">
+      			<div class="modal-header">
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       				<h4 class="modal-title" style="font-family: 微软雅黑;">提示</h4>
+      			</div>
+      		<div class="modal-body">
+        		<p id="alert_data" style="font-family: 微软雅黑;">&hellip;</p>
+      		</div>
+      		<div class="modal-footer">
+        		<button type="button" class="btn btn-primary btn-flat" data-dismiss="modal">关闭</button>
+      		</div>
+    		</div>
+  		</div>
+	</div>
+	<script type="text/javascript">
+		function show_model(content) {
+			$("#alert_data").html(content);
+			$('#alert_msg').modal('show');
+			}
+	</script>
+	<script type="text/javascript">
+		$(function(){
+			$("#apply").click(function(){
+				var level=$("#level").val();
+				var recommend_username=$("#recommend_username").val();
+				var father=$("#father").val();
+				var position=$("#position").val();
+				var place=$("#place").val();
+				var username=$("#username").val();
+				var password_1=$("#password_1").val();
+				var password_2=$("#password_2").val();
+				var pay_1=$("#pay_1").val();
+				var pay_2=$("#pay_2").val();
+				var realname=$("#realname").val();
+				var card_id=$("#card_id").val();
+				var tel=$("#tel").val();
+				if(username==''){
+					show_model("用户名不可为空");
+					return;
+				}else if(password_1==''){
+					show_model("登陆密码不可为空");
+					return;
+				}else if(password_2==''){
+					show_model("请再次输入登陆密码");
+					return;
+				}else if(password_1!=password_2){
+					show_model("两次输入的登陆不相同");
+					return;
+				}else if(pay_1==''){
+					show_model("交易密码不可为空");
+					return;
+				}else if(pay_2==''){
+					show_model("请再次输入交易密码");
+					return;
+				}else if(pay_1!=pay_2){
+					show_model("两次输入的交易不相同");
+					return;
+				}else if(realname==''){
+					show_model("真实姓名不可以为空");
+					return;
+				}else if(tel==''){
+					show_model("用户电话不可以为空");
+					return;
+				}
+				var params='{"level":"'+level+'","recommend_username":"'+recommend_username+'","father":"'+father+'","position":"'+position+'","place":"'+place+'","username":"'+username+'","password_1":"'+password_1+'","pay_1":"'+pay_1+'","realname":"'+realname+'","card_id":"'+card_id+'","tel":"'+tel+'","father":"'+father+'"}';
+				$.ajax({
+					type : "POST",
+					contentType : "application/json;",
+					url : "../leos/recommend-register-ajax.do",
+					data : params,
+					dataType : 'json',
+					success : function(data) {
+						if(data.result=='success'){
+							window.location.href = "../leos/index.do";
+						}else if(data.result=='captcha_invalid'){
+							show_model("您的验证码不正确，请输入正确验证码！");
+						}else if(data.result=='user_invalid'){
+							show_model("账户非法，请联系管理员！");
+						}else if(data.result=='user_error'){
+							show_model("账户用户名或密码不正确！");
+						}
+					},
+					error : function(data) {
+						show_model("加载失败");
+					}
+				});
+			});
+		});
+		
+	</script>
 </body>
 </html>

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.pay.service.UserService;
 
@@ -113,16 +115,19 @@ public class HomeController {
 		}
 	}
 
-	@RequestMapping(value = "recommend-register")
-	public String recommend_register(HttpSession session, Model model) {
+	@RequestMapping(value = "recommend-register",method = RequestMethod.GET)
+	public String recommend_register(HttpSession session, Model model,@RequestParam(value = "father") String father,@RequestParam(value = "position") String position) {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
 			return "login";
 		} else {
 			model.addAttribute("realname", realname);
+			model.addAttribute("username", username);
 			String level = String.valueOf(session.getAttribute("level"));
 			model.addAttribute("level", level);
+			model.addAttribute("father",father);
+			model.addAttribute("position",position);
 			return "recommend-register";
 		}
 	}
