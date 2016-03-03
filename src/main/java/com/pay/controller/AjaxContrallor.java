@@ -62,11 +62,31 @@ public class AjaxContrallor {
 	@RequestMapping(value = "register-map-ajax", method = RequestMethod.POST)
 	@ResponseBody
 	public String register_map_ajax(HttpSession session, @RequestBody Map<String, String> params, Model model) {
+		HashMap<String, String> result_map = new HashMap<String, String>();
 		String father = params.get("father");
 		String position = params.get("position");
+		HashMap<String, Object> user = userService.queryBankByUsername(father);
+		if (user == null ? true : user.size() > 0) {
+			String right_son=String.valueOf(user.get("right_son"));
+			String left_son=String.valueOf(user.get("left_son"));
+			if(position.equals("right")){
+				if(right_son==null){
+					result_map.put("result","ok");
+				}else{
+					result_map.put("result","no");
+				}
+			}else{
+				if(left_son==null){
+					result_map.put("result","ok");
+				}else{
+					result_map.put("result","no");
+				}
+			}
+		} else {
+			//无此节点
+			result_map.put("result","none");
+		}
 		
-		HashMap<String, String> result_map = new HashMap<String, String>();
-
 		String result_json = "";
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();

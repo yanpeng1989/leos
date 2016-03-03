@@ -304,10 +304,12 @@
 					data : params,
 					dataType : 'json',
 					success : function(data) {
-						if(data.result=='success'){
+						if(data.result=='ok'){
 							window.location.href=window.location.href = "../leos/recommend-register.do?father="+father+"&position="+position;
-						}else if(data.result=='error'){
+						}else if(data.result=='no'){
 							show_model("不允许放在此位置，请仔细检查后填写！");
+						}else if(data.result=='none'){
+							show_model("不存在此节点");
 						}
 					},
 					error : function(data) {
