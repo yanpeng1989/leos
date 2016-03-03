@@ -58,19 +58,29 @@ public class UserImpl implements UserInterface {
 		return sqlSessionTemplate.selectOne("queryUserByUsername", params);
 	}
 
-	// 向父节点左侧插入孩子
+	// 向父节点右侧插入孩子
 	@Override
-	public void updateUserRightByusername(String username) {
+	public void updateUserRightByusername(String username, String right_son) {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("username", username);
+		params.put("right_son", right_son);
 		sqlSessionTemplate.update("updateUserRightByusername", params);
 	}
 
-	// 向父节点右侧插入孩子
+	// 向父节点左侧插入孩子
 	@Override
-	public void updateUserLeftByusername(String username) {
+	public void updateUserLeftByusername(String username, String left_son) {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("username", username);
+		params.put("left_son", left_son);
 		sqlSessionTemplate.update("updateUserLeftByusername", params);
+	}
+
+	//注册用户时，添加钱包信息
+	@Override
+	public void insertWallet(String username) {
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("username", username);
+		sqlSessionTemplate.insert("insertWallet", params);
 	}
 }

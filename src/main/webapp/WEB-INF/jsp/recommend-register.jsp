@@ -326,13 +326,9 @@
 					dataType : 'json',
 					success : function(data) {
 						if(data.result=='success'){
-							window.location.href = "../leos/index.do";
-						}else if(data.result=='captcha_invalid'){
-							show_model("您的验证码不正确，请输入正确验证码！");
-						}else if(data.result=='user_invalid'){
-							show_model("账户非法，请联系管理员！");
-						}else if(data.result=='user_error'){
-							show_model("账户用户名或密码不正确！");
+							show_model("注册成功");
+						}else if(data.result=='exit'){
+							show_model("用户名已存在");
 						}
 					},
 					error : function(data) {

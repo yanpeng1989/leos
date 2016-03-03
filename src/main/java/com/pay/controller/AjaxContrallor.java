@@ -23,6 +23,7 @@ public class AjaxContrallor {
 	@Autowired
 	public UserService userService;
 
+	// 登陆
 	@RequestMapping(value = "login-ajax", method = RequestMethod.POST)
 	@ResponseBody
 	public String login_ajax(HttpSession session, @RequestBody Map<String, String> params, Model model) {
@@ -56,14 +57,32 @@ public class AjaxContrallor {
 		}
 		return result_json;
 	}
-	
-	@RequestMapping(value = "recommend-register-ajax", method = RequestMethod.POST)
+
+	// 检测此位置是否可以发展子节点
+	@RequestMapping(value = "register-map-ajax", method = RequestMethod.POST)
 	@ResponseBody
-	public String recommend_register_ajax(HttpSession session, @RequestBody Map<String, String> params, Model model) {
-		
+	public String register_map_ajax(HttpSession session, @RequestBody Map<String, String> params, Model model) {
+		String father = params.get("father");
+		String position = params.get("position");
 		
 		HashMap<String, String> result_map = new HashMap<String, String>();
-		
+
+		String result_json = "";
+		try {
+			ObjectMapper objectMapper = new ObjectMapper();
+			result_json = objectMapper.writeValueAsString(result_map);
+		} catch (Exception e) {
+		}
+		return result_json;
+	}
+
+	// 注册
+	@RequestMapping(value = "recommend-register-ajax", method = RequestMethod.POST)
+	@ResponseBody
+	public String recommend_register_ajax(HttpSession session, @RequestBody HashMap<String, String> params, Model model) {
+
+		HashMap<String, String> result_map = new HashMap<String, String>();
+		result_map.put("result", userService.insertUser(params));
 		String result_json = "";
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();

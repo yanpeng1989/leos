@@ -53,10 +53,21 @@ public class UserService {
 		return result;
 	}
 
+	// 检测此节点是否可以放置孩子
+	public String detectionNode(String father, String position) {
+		HashMap<String, Object> parents = userImpl.queryUserByUsername(father);
+		if (parents == null ? false : parents.size() > 0) {
+			
+		} else {
+		}
+		return null;
+	}
+
 	// 推荐注册用户
 	public String insertUser(HashMap<String, String> params) {
 		String username = params.get("username");
-		if (userImpl.queryUserByUsername(username).size() > 0) {
+		HashMap<String, Object> detection = userImpl.queryUserByUsername(username);
+		if (detection == null ? false : detection.size() > 0) {
 			return "exit";
 		} else {
 			Calendar calendar = Calendar.getInstance();
@@ -78,7 +89,7 @@ public class UserService {
 			String leader_id = leader.get("id").toString();
 			if (leader_id.length() > 13) {
 				int tail = Integer.parseInt(leader_id.substring(13, leader_id.length()));
-				if (position.equals("左侧")) {
+				if (position.equals("left")) {
 					id = head + Integer.toString(tail * 2);
 				} else {
 					id = head + Integer.toString(tail * 2 + 1);
@@ -88,7 +99,12 @@ public class UserService {
 			new_user.setId(id);
 			new_user.setCard_id(card_id);
 			new_user.setFather(father);
-			new_user.setKey(recommend.get("key").toString() + ";" + id);
+			if (String.valueOf(recommend.get("key")).equals("null")) {
+				new_user.setKey_path(id);
+			} else {
+				new_user.setKey_path(String.valueOf(recommend.get("key")) + ";" + id);
+			}
+			new_user.setPlace("亚太");
 			new_user.setPassword(password);
 			new_user.setPay(pay);
 			new_user.setRealname(realname);
@@ -96,11 +112,15 @@ public class UserService {
 			new_user.setTel(tel);
 			new_user.setUsername(username);
 			new_user.setPlace(place);
+			new_user.setValid("有效");
+			new_user.setLeft_son("");
+			new_user.setRight_son("");
 			userImpl.insertUser(new_user);
+			userImpl.insertWallet(username);
 			if (position.equals("左侧")) {
-				userImpl.updateUserLeftByusername(father);
+				userImpl.updateUserLeftByusername(father, username);
 			} else {
-				userImpl.updateUserRightByusername(father);
+				userImpl.updateUserRightByusername(father, username);
 			}
 			return "success";
 		}

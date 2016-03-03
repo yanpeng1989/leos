@@ -16,11 +16,11 @@ public class User implements Serializable {
 	private String card_id;
 	private String tel;
 	private String father;
-	private String left;
-	private String right;
+	private String left_son;
+	private String right_son;
 	private String level;
 	private String place;
-	private String key;
+	private String key_path;
 	private String valid;
 
 	public String getValid() {
@@ -97,20 +97,20 @@ public class User implements Serializable {
 		this.father = father;
 	}
 
-	public String getLeft() {
-		return left;
+	public String getLeft_son() {
+		return left_son;
 	}
 
-	public void setLeft(String left) {
-		this.left = left;
+	public void setLeft_son(String left_son) {
+		this.left_son = left_son;
 	}
 
-	public String getRight() {
-		return right;
+	public String getRight_son() {
+		return right_son;
 	}
 
-	public void setRight(String right) {
-		this.right = right;
+	public void setRight_son(String right_son) {
+		this.right_son = right_son;
 	}
 
 	public String getLevel() {
@@ -129,12 +129,12 @@ public class User implements Serializable {
 		this.place = place;
 	}
 
-	public String getKey() {
-		return key;
+	public String getKey_path() {
+		return key_path;
 	}
 
-	public void setKey(String key) {
-		this.key = key;
+	public void setKey_path(String key_path) {
+		this.key_path = key_path;
 	}
 
 	public String getTemps() {

@@ -17,7 +17,9 @@ public interface UserInterface {
 
 	public HashMap<String, Object> queryUserByUsername(String username);
 
-	public void updateUserRightByusername(String username);
+	public void updateUserRightByusername(String username, String right_som);
 
-	public void updateUserLeftByusername(String username);
+	public void updateUserLeftByusername(String username, String left_som);
+
+	public void insertWallet(String username);
 }

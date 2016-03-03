@@ -295,7 +295,25 @@
 					show_model("请输入接点");
 					return;
 				}
-				window.location.href=window.location.href = "../leos/recommend-register.do?father="+father+"&position="+position;
+				
+				var params='{"father":"'+father+'","position":"'+position+'"}';
+				$.ajax({
+					type : "POST",
+					contentType : "application/json;",
+					url : "../leos/register-map-ajax.do",
+					data : params,
+					dataType : 'json',
+					success : function(data) {
+						if(data.result=='success'){
+							window.location.href=window.location.href = "../leos/recommend-register.do?father="+father+"&position="+position;
+						}else if(data.result=='error'){
+							show_model("不允许放在此位置，请仔细检查后填写！");
+						}
+					},
+					error : function(data) {
+						show_model("加载失败");
+					}
+				});
 			});
 		});
 	</script>
