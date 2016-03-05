@@ -54,13 +54,8 @@ public class UserService {
 	}
 
 	// 检测此节点是否可以放置孩子
-	public String detectionNode(String father, String position) {
-		HashMap<String, Object> parents = userImpl.queryUserByUsername(father);
-		if (parents == null ? false : parents.size() > 0) {
-			
-		} else {
-		}
-		return null;
+	public HashMap<String, Object> queryUserByUsername(String father) {
+		return userImpl.queryUserByUsername(father);
 	}
 
 	// 推荐注册用户

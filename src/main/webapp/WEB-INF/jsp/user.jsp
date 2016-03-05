@@ -135,27 +135,27 @@
 					<div class="box-body">
 						<div class="input-group">
 							<span class="input-group-addon">用户账号</span> 
-							<input type="text" class="form-control" value="xjb1991" disabled>
+							<input type="text" class="form-control" value="${user.username}" disabled>
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">当前级别</span> 
-							<input type="text" class="form-control" value="一星" disabled>
+							<input type="text" class="form-control" value="${user.level}" disabled>
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">注册时间</span> 
-							<input type="text" class="form-control" value="2016-02-05 13:17:32" disabled>
+							<input type="text" class="form-control" value="${user.temps}" disabled>
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">真实姓名</span> 
-							<input type="text" class="form-control" value="杜涛" disabled>
+							<input type="text" class="form-control" value="${user.realname}" disabled>
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">联系电话</span> 
-							<input type="text" class="form-control" value="13393716071" disabled>
+							<input type="text" class="form-control" value="${user.tel}" disabled>
 						</div>
 					</div>
 				</div>
@@ -166,17 +166,17 @@
 					<div class="box-body">
 						<div class="input-group">
 							<span class="input-group-addon">开户银行</span> 
-							<input type="text" class="form-control" value="中国工商银行" disabled>
+							<input type="text" class="form-control" value="${bank.bank_name}" disabled>
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">开户姓名</span> 
-							<input type="text" class="form-control" value="杜涛" disabled>
+							<input type="text" class="form-control" value="${bank.name }" disabled>
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">银行卡号</span> 
-							<input type="text" class="form-control" value="6222021609042586789" disabled>
+							<input type="text" class="form-control" value="${bank.bank_id }" disabled>
 						</div>
 					</div>
 				</div>

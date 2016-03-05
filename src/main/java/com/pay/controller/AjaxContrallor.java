@@ -65,8 +65,8 @@ public class AjaxContrallor {
 		HashMap<String, String> result_map = new HashMap<String, String>();
 		String father = params.get("father");
 		String position = params.get("position");
-		HashMap<String, Object> user = userService.queryBankByUsername(father);
-		if (user == null ? true : user.size() > 0) {
+		HashMap<String, Object> user = userService.queryUserByUsername(father);
+		if (user == null ? false : user.size() > 0) {
 			String right_son=String.valueOf(user.get("right_son"));
 			String left_son=String.valueOf(user.get("left_son"));
 			if(position.equals("right")){

@@ -41,6 +41,8 @@ public class HomeController {
 			model.addAttribute("realname", realname);
 			String level = String.valueOf(session.getAttribute("level"));
 			model.addAttribute("level", level);
+			model.addAttribute("user", userService.queryUserByUsername(username));
+			model.addAttribute("bank", userService.queryBankByUsername(username));
 			return "user";
 		}
 	}
