@@ -31,6 +31,7 @@ public class UserService {
 		}
 	}
 
+	// 查询资金信息
 	public HashMap<String, Object> queryWalletByUsername(String username) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		Wallet wallet = userImpl.queryWalletByUsername(username);
@@ -43,14 +44,27 @@ public class UserService {
 		return result;
 	}
 
-	// 查询资金信息
+	// 查询银行卡信息
 	public HashMap<String, Object> queryBankByUsername(String username) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		Bank bank = userImpl.queryBankByUsername(username);
-		result.put("a_coin", bank.getBank_name());
-		result.put("c_coin", bank.getName());
-		result.put("cpm_coin", bank.getBank_id());
+		if (bank != null) {
+			String bank_name = String.valueOf(bank.getBank_name());
+			result.put("bank_name", bank_name);
+			String name = String.valueOf(bank.getName());
+			result.put("name", name);
+			String bank_id = String.valueOf(bank.getBank_id());
+			result.put("bank_id", bank_id);
+		} else {
+			result.put("bank_name", "null");
+			result.put("name", "null");
+			result.put("bank_id", "null");
+		}
 		return result;
+	}
+	// 更新银行卡信息
+	public void updateBankByUsername(HashMap<String, String> params) {
+		userImpl.updateBankByUsername(params);
 	}
 
 	// 检测此节点是否可以放置孩子

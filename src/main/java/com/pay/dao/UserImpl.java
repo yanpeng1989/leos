@@ -76,11 +76,17 @@ public class UserImpl implements UserInterface {
 		sqlSessionTemplate.update("updateUserLeftByusername", params);
 	}
 
-	//注册用户时，添加钱包信息
+	// 注册用户时，添加钱包信息
 	@Override
 	public void insertWallet(String username) {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("username", username);
 		sqlSessionTemplate.insert("insertWallet", params);
+	}
+
+	// 更新补充银行卡信息
+	@Override
+	public void updateBankByUsername(HashMap<String, String> params) {
+		sqlSessionTemplate.update("updateBankByUsername", params);
 	}
 }

@@ -17,6 +17,9 @@
 	<select id="queryBankByUsername" resultType="Bank" parameterType="map">
 		select * from bank where username=#{username}
 	</select>
+	<update id="updateBankByUsername" parameterType="map" >
+        update bank set name=#{name},bank_id=#{bank_id},bank_name=#{bank_name} where username=#{username}
+    </update>
 	<!-- 检测用户名是否被使用 -->
 	<select id="queryUserByUsername" resultType="map" parameterType="map">
 		select * from user where username=#{username}

@@ -67,26 +67,26 @@ public class AjaxContrallor {
 		String position = params.get("position");
 		HashMap<String, Object> user = userService.queryUserByUsername(father);
 		if (user == null ? false : user.size() > 0) {
-			String right_son=String.valueOf(user.get("right_son"));
-			String left_son=String.valueOf(user.get("left_son"));
-			if(position.equals("right")){
-				if(right_son==null){
-					result_map.put("result","ok");
-				}else{
-					result_map.put("result","no");
+			String right_son = String.valueOf(user.get("right_son"));
+			String left_son = String.valueOf(user.get("left_son"));
+			if (position.equals("right")) {
+				if (right_son == null) {
+					result_map.put("result", "ok");
+				} else {
+					result_map.put("result", "no");
 				}
-			}else{
-				if(left_son==null){
-					result_map.put("result","ok");
-				}else{
-					result_map.put("result","no");
+			} else {
+				if (left_son == null) {
+					result_map.put("result", "ok");
+				} else {
+					result_map.put("result", "no");
 				}
 			}
 		} else {
-			//无此节点
-			result_map.put("result","none");
+			// 无此节点
+			result_map.put("result", "none");
 		}
-		
+
 		String result_json = "";
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();
@@ -103,6 +103,30 @@ public class AjaxContrallor {
 
 		HashMap<String, String> result_map = new HashMap<String, String>();
 		result_map.put("result", userService.insertUser(params));
+		String result_json = "";
+		try {
+			ObjectMapper objectMapper = new ObjectMapper();
+			result_json = objectMapper.writeValueAsString(result_map);
+		} catch (Exception e) {
+		}
+		return result_json;
+	}
+
+	// 更新银行卡信息
+	@RequestMapping(value = "user-bank-ajax", method = RequestMethod.POST)
+	@ResponseBody
+	public String user_bank_ajax(HttpSession session, @RequestBody HashMap<String, String> params, Model model) {
+
+		String username = String.valueOf(session.getAttribute("username"));
+		params.put("username", username);
+		HashMap<String, String> result_map = new HashMap<String, String>();
+
+		if (userService.queryBankByUsername(username).get("bank_name").equals("null")) {
+			userService.updateBankByUsername(params);
+			result_map.put("result", "success");
+		}else{
+			result_map.put("result", "error");
+		}
 		String result_json = "";
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();
