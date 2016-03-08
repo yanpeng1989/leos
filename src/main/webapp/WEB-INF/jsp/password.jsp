@@ -1,10 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="head.jsp"></jsp:include>
+<script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 		<header class="main-header">
-			<!-- Logo -->
 			<a href="#" class="logo"> <span class="logo-mini"><b>LE</b>OS</span> <span class="logo-lg"><b>量子货币</b>LEOS</span>
 			</a>
 			<nav class="navbar navbar-static-top" role="navigation">
@@ -59,7 +60,6 @@
 						<a href="#"><i class="fa fa-circle text-success"></i>欢迎您！</a>
 					</div>
 				</div>
-				<!-- sidebar menu -->
 				<ul class="sidebar-menu">
 					<li class="header">用户中心</li>
 					<li class="active treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>用户资料</span> <i
@@ -114,7 +114,6 @@
 					<li><a href="faq.do"><i class="fa fa-circle-o text-aqua"></i> <span>投诉建议</span></a></li>
 				</ul>
 			</section>
-			<!-- /.sidebar -->
 		</aside>
 		<div class="content-wrapper">
 			<section class="content-header">
@@ -135,21 +134,21 @@
 					<div class="box-body">
 						<div class="input-group">
 							<span class="input-group-addon">当前密码</span> 
-							<input type="text" class="form-control">
+							<input id="now_p" type="password" class="form-control">
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">最新密码</span> 
-							<input type="text" class="form-control">
+							<input id="new_p1" type="password" class="form-control">
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">确认密码</span> 
-							<input type="text" class="form-control">
+							<input id="new_p2" type="password" class="form-control">
 						</div>
 						<br/>
 						<div class="box-body">
-							<button class="btn btn-primary btn-block btn-flat">确认</button>
+							<button id="now_btn" class="btn btn-primary btn-block btn-flat">确认</button>
 						</div>
 					</div>
 				</div>
@@ -160,28 +159,27 @@
 					<div class="box-body">
 						<div class="input-group">
 							<span class="input-group-addon">当前安全密码</span> 
-							<input type="text" class="form-control">
+							<input id="pay_now" type="password" class="form-control">
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">最新安全密码</span> 
-							<input type="text" class="form-control">
+							<input id="pay_new1" type="password" class="form-control">
 						</div>
 						<br/>
 						<div class="input-group">
 							<span class="input-group-addon">确认安全密码</span> 
-							<input type="text" class="form-control">
+							<input id="pay_new2" type="password" class="form-control">
 						</div>
 						<br/>
 						<div class="box-body">
-							<button class="btn btn-primary btn-block btn-flat">确认</button>
+							<button id="pay_btn" class="btn btn-primary btn-block btn-flat">确认</button>
 						</div>
 					</div>
 				</div>
 			</section>
 		</div>
 	</div>
-	<!-- /.content-wrapper -->
 	<footer class="main-footer">
 		<div class="pull-right hidden-xs">
 			<b>Version</b> 2.3.0
@@ -189,6 +187,115 @@
 		<strong>Copyright &copy; 2014-2015 <a href="#">LEOS—FUND</a>.
 		</strong> All rights reserved.
 	</footer>
-	<jsp:include page="foot.jsp"></jsp:include>
+	<!-- 模态框 Begin-->
+	<div id="alert_msg" class="modal fade" >
+  		<div class="modal-dialog">
+   			<div class="modal-content">
+      			<div class="modal-header">
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       				<h4 class="modal-title" style="font-family: 微软雅黑;">提示</h4>
+      			</div>
+      		<div class="modal-body">
+        		<p id="alert_data" style="font-family: 微软雅黑;">&hellip;</p>
+      		</div>
+      		<div class="modal-footer">
+        		<button type="button" class="btn btn-primary btn-flat" data-dismiss="modal">关闭</button>
+      		</div>
+    		</div>
+  		</div>
+	</div>
+	<script type="text/javascript">
+		function show_model(content) {
+			$("#alert_data").html(content);
+			$('#alert_msg').modal('show');
+			}
+	</script>
+<script type="text/javascript">
+	$(function(){
+		$("#now_btn").click(function(){
+			var now_p=$("#now_p").val();
+			var new_p1=$("#new_p1").val();
+			var new_p2=$("#new_p2").val();
+			if(now_p==''){
+				show_model("输入旧密码");
+				return;
+			} else if(new_p1==''){
+				show_model("输入新密码");
+				return;
+			} else if(new_p2==''){
+				show_model("再次输入新密码");
+				return;
+			}else if(new_p1!=new_p2){
+				show_model("两次输入的密码不一致，请重新输入");
+				return;
+			}
+			var params='{"now_p":"'+now_p+'","new_p1":"'+new_p1+'","now_p2":"'+new_p2+'"}';
+			$.ajax({
+				type : "POST",
+				contentType : "application/json;",
+				url : "../leos/pwd-update-ajax.do",
+				data : params,
+				dataType : 'json',
+				success : function(data) {
+					if(data.result=='success'){
+						show_model("更新成功");
+						$("#now_p").attr("disabled",true);
+						$("#new_p1").attr("disabled",true);
+						$("#new_p2").attr("disabled",true);
+					}else if(data.result=='error'){
+						show_model("原始登陆密码不正确");
+					}
+				},
+				error : function(data) {
+					show_model("加载失败");
+				}
+			});
+		});
+	});
+</script>
+<script type="text/javascript">
+	$(function(){
+		$("#pay_btn").click(function(){
+			var pay_now=$("#pay_now").val();
+			var pay_new1=$("#pay_new1").val();
+			var pay_new2=$("#pay_new2").val();
+			if(pay_now==''){
+				show_model("输入旧密码");
+				return;
+			} else if(pay_new1==''){
+				show_model("输入新密码");
+				return;
+			} else if(pay_new2==''){
+				show_model("再次输入新密码");
+				return;
+			}
+			else if(pay_new1!=pay_new2){
+				show_model("两次输入的密码不一致，请重新输入");
+				return;
+			}
+			var params='{"pay_now":"'+pay_now+'","pay_new1":"'+pay_new1+'","pay_new2":"'+pay_new2+'"}';
+			$.ajax({
+				type : "POST",
+				contentType : "application/json;",
+				url : "../leos/pay-update-ajax.do",
+				data : params,
+				dataType : 'json',
+				success : function(data) {
+					if(data.result=='success'){
+						show_model("更新成功");
+						$("#pay_now").attr("disabled",true);
+						$("#pay_new1").attr("disabled",true);
+						$("#pay_new2").attr("disabled",true);
+					}else if(data.result=='error'){
+						show_model("原始支付密码不正确");
+					}
+				},
+				error : function(data) {
+					show_model("加载失败");
+				}
+			});
+		});
+	});
+</script>
 </body>
 </html>

@@ -22,5 +22,12 @@ public interface UserInterface {
 	public void updateUserLeftByusername(String username, String left_som);
 
 	public void insertWallet(String username);
+
 	public void updateBankByUsername(HashMap<String, String> params);
+
+	public void updatePasswordByUsername(HashMap<String, String> params);
+
+	public void updatePayByUsername(HashMap<String, String> params);
+
+	public void updateBindingByUsername(HashMap<String, String> params);
 }

@@ -89,4 +89,22 @@ public class UserImpl implements UserInterface {
 	public void updateBankByUsername(HashMap<String, String> params) {
 		sqlSessionTemplate.update("updateBankByUsername", params);
 	}
+
+	// 更新登陆密码
+	@Override
+	public void updatePasswordByUsername(HashMap<String, String> params) {
+		sqlSessionTemplate.update("updatePasswordByUsername", params);
+	}
+
+	// 更新支付密码
+	@Override
+	public void updatePayByUsername(HashMap<String, String> params) {
+		sqlSessionTemplate.update("updatePayByUsername", params);
+	}
+
+	// 更新绑定信息
+	@Override
+	public void updateBindingByUsername(HashMap<String, String> params) {
+		sqlSessionTemplate.update("updateBingingByUsername", params);
+	}
 }

@@ -100,7 +100,6 @@ public class AjaxContrallor {
 	@RequestMapping(value = "recommend-register-ajax", method = RequestMethod.POST)
 	@ResponseBody
 	public String recommend_register_ajax(HttpSession session, @RequestBody HashMap<String, String> params, Model model) {
-
 		HashMap<String, String> result_map = new HashMap<String, String>();
 		result_map.put("result", userService.insertUser(params));
 		String result_json = "";
@@ -116,16 +115,86 @@ public class AjaxContrallor {
 	@RequestMapping(value = "user-bank-ajax", method = RequestMethod.POST)
 	@ResponseBody
 	public String user_bank_ajax(HttpSession session, @RequestBody HashMap<String, String> params, Model model) {
-
 		String username = String.valueOf(session.getAttribute("username"));
 		params.put("username", username);
 		HashMap<String, String> result_map = new HashMap<String, String>();
-
 		if (userService.queryBankByUsername(username).get("bank_name").equals("null")) {
 			userService.updateBankByUsername(params);
 			result_map.put("result", "success");
-		}else{
+		} else {
 			result_map.put("result", "error");
+		}
+		String result_json = "";
+		try {
+			ObjectMapper objectMapper = new ObjectMapper();
+			result_json = objectMapper.writeValueAsString(result_map);
+		} catch (Exception e) {
+		}
+		return result_json;
+	}
+
+	// 更新登陆密码
+	@RequestMapping(value = "pwd-update-ajax", method = RequestMethod.POST)
+	@ResponseBody
+	public String pwd_update_ajax(HttpSession session, @RequestBody HashMap<String, String> params) {
+		String username = String.valueOf(session.getAttribute("username"));
+		params.put("username", username);
+		params.put("password", params.get("new_p1"));
+		HashMap<String, String> result_map = new HashMap<String, String>();
+		if (userService.queryUserByUsername(username).get("password").equals(params.get("now_p"))) {
+			userService.updatePwdPayByUsername(params, "password");
+			result_map.put("result", "success");
+		} else {
+			result_map.put("result", "error");
+		}
+		String result_json = "";
+		try {
+			ObjectMapper objectMapper = new ObjectMapper();
+			result_json = objectMapper.writeValueAsString(result_map);
+		} catch (Exception e) {
+		}
+		return result_json;
+	}
+
+	// 更新支付密码
+	@RequestMapping(value = "pay-update-ajax", method = RequestMethod.POST)
+	@ResponseBody
+	public String pay_update_ajax(HttpSession session, @RequestBody HashMap<String, String> params) {
+		String username = String.valueOf(session.getAttribute("username"));
+		params.put("username", username);
+		params.put("pay", params.get("pay_new1"));
+		HashMap<String, String> result_map = new HashMap<String, String>();
+		if (userService.queryUserByUsername(username).get("pay").equals(params.get("pay_now"))) {
+			userService.updatePwdPayByUsername(params, "pay");
+			result_map.put("result", "success");
+		} else {
+			result_map.put("result", "error");
+		}
+		String result_json = "";
+		try {
+			ObjectMapper objectMapper = new ObjectMapper();
+			result_json = objectMapper.writeValueAsString(result_map);
+		} catch (Exception e) {
+		}
+		return result_json;
+	}
+
+	// 绑定账户
+	@RequestMapping(value = "binding-ajax", method = RequestMethod.POST)
+	@ResponseBody
+	public String binding_ajax(HttpSession session, @RequestBody HashMap<String, String> params) {
+		String username = String.valueOf(session.getAttribute("username"));
+		String binding = params.get("username");
+
+		HashMap<String, String> result_map = new HashMap<String, String>();
+		if (userService.queryUserByPassword(params.get("username"), params.get("password")).isEmpty()) {
+			result_map.put("result", "error");
+		} else {
+			if (!userService.queryUserByUsername(username).get("binding").equals("null")) {
+				binding = userService.queryUserByUsername(username).get("binding") + "," + binding;
+			}
+			userService.updateBindingByUsername(username, binding);
+			result_map.put("result", "success");
 		}
 		String result_json = "";
 		try {

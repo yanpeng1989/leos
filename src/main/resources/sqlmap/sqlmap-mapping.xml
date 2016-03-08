@@ -9,6 +9,18 @@
 	<select id="queryUserByPassword" resultType="User" parameterType="map">
 		select * from user where username=#{username} and password=#{password}
 	</select>
+	<!-- 修改登陆密码 -->
+	<update id="updatePasswordByUsername" parameterType="map" >
+        update user set password=#{password} where username=#{username}
+    </update>
+    <!-- 修改支付密码 -->
+	<update id="updatePayByUsername" parameterType="map" >
+        update user set pay=#{pay} where username=#{username}
+    </update>
+    <!-- 修改绑定信息 -->
+    <update id="updateBingingByUsername" parameterType="map" >
+        update user set binding=#{binding} where username=#{username}
+    </update>
 	<!-- 钱包信息 -->
 	<select id="queryWalletByUsername" resultType="Wallet" parameterType="map">
 		select * from wallet where username=#{username}

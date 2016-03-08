@@ -22,6 +22,8 @@ public class User implements Serializable {
 	private String place;
 	private String key_path;
 	private String valid;
+	private String binding;
+	private String temps;
 
 	public String getValid() {
 		return valid;
@@ -30,8 +32,6 @@ public class User implements Serializable {
 	public void setValid(String valid) {
 		this.valid = valid;
 	}
-
-	private String temps;
 
 	public String getId() {
 		return id;
@@ -135,6 +135,14 @@ public class User implements Serializable {
 
 	public void setKey_path(String key_path) {
 		this.key_path = key_path;
+	}
+
+	public String getBinding() {
+		return binding;
+	}
+
+	public void setBinding(String binding) {
+		this.binding = binding;
 	}
 
 	public String getTemps() {

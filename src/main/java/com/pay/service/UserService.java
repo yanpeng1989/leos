@@ -62,6 +62,7 @@ public class UserService {
 		}
 		return result;
 	}
+
 	// 更新银行卡信息
 	public void updateBankByUsername(HashMap<String, String> params) {
 		userImpl.updateBankByUsername(params);
@@ -133,5 +134,22 @@ public class UserService {
 			}
 			return "success";
 		}
+	}
+
+	// 修改登陆密码和支付密码
+	public void updatePwdPayByUsername(HashMap<String, String> params, String type) {
+		if (type.equals("password")) {
+			userImpl.updatePasswordByUsername(params);
+		} else if (type.equals("pay")) {
+			userImpl.updatePayByUsername(params);
+		}
+	}
+
+	// 更新绑定信息
+	public void updateBindingByUsername(String username, String binding) {
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("username", username);
+		params.put("binding", binding);
+		userImpl.updateBindingByUsername(params);
 	}
 }

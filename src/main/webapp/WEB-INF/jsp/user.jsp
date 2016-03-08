@@ -6,7 +6,6 @@
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 		<header class="main-header">
-			<!-- Logo -->
 			<a href="#" class="logo"> <span class="logo-mini"><b>LE</b>OS</span> <span class="logo-lg"><b>量子货币</b>LEOS</span>
 			</a>
 			<nav class="navbar navbar-static-top" role="navigation">
@@ -230,19 +229,22 @@
 			var bank_id=$("#bank_id_h").val();
 			if(bank_name!='null'){
 				$("#bank_name").attr('value',bank_name);
-				$("#bank_btn").attr('disabled',true);
+				$("#bank_name").attr("disabled",true);
+				$("#bank_btn").hide();
 			}else {
 				$("#bank_name").attr('value','');
 			}
 			if(name!='null'){
 				$("#name").attr('value',name);
-				$("#bank_btn").attr('disabled',true);
+				$("#name").attr("disabled",true);
+				$("#bank_btn").hide();
 			}else {
 				$("#name").attr('value','');
 			}
 			if(bank_id!='null'){
 				$("#bank_id").attr('value',bank_id);
-				$("#bank_btn").attr('disabled',true);
+				$("#bank_id").attr("disabled",true);
+				$("#bank_btn").hide();
 			}else {
 				$("#bank_id").attr('value','');
 			}
