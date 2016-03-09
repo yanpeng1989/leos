@@ -51,8 +51,12 @@
     <insert id="insertWallet" parameterType="map">
 		INSERT INTO wallet(username) VALUES (#{username})
 	</insert>
-	<!-- 注册新建钱包 -->
+	<!-- 新闻通知 -->
 	<select id="queryNewsByLimit" resultType="news" parameterType="map">
 		select * from news limit 8
+	</select>
+	<!-- 新闻详细内容 -->
+	<select id="queryNewsById" resultType="news" parameterType="map">
+		select * from news where id=#{id}
 	</select>
 </mapper>

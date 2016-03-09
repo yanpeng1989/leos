@@ -1,5 +1,6 @@
 package com.pay.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -402,6 +403,18 @@ public class HomeController {
 			String level = String.valueOf(session.getAttribute("level"));
 			model.addAttribute("level", level);
 			return "login";
+		}
+	}
+	@RequestMapping(value = "detail")
+	public String detail(HttpSession session, Model model,HttpServletRequest request) {
+		String username = String.valueOf(session.getAttribute("username"));
+		String news_id=request.getParameter("new_id");
+		if (username.equals("null")) {
+			return "login";
+		} else {
+			model.addAttribute("comment", newsService.queryNewsById(news_id).get("comment"));
+			model.addAttribute("title", newsService.queryNewsById(news_id).get("title"));
+			return "detail";
 		}
 	}
 

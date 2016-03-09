@@ -207,7 +207,7 @@
 												<td>${news.id}</td>
 												<td style="color: red;">${news.title}</td>
 												<td>${news.temps}</td>
-												<td><a id="href" href="${news.id}">详情</a></td>
+												<td><a href="/leos/detail.do?new_id=${news.id}" target="_blank">详情</a></td>
 											</tr>
 											</c:forEach>
 										</tbody>

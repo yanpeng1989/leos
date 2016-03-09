@@ -1,5 +1,6 @@
 package com.pay.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,5 +16,9 @@ public class NewsService {
 
 	public List<News> queryNewsByLimit() {
 		return newsImpl.queryNewsByLimit();
+	}
+
+	public HashMap<String, String> queryNewsById(String id) {
+		return newsImpl.queryNewsById(id);
 	}
 }

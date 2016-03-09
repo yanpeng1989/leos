@@ -1,5 +1,6 @@
 package com.pay.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,11 @@ public class NewsImpl implements NewsInterface {
 	@Override
 	public List<News> queryNewsByLimit() {
 		return sqlSessionTemplate.selectList("queryNewsByLimit");
+	}
+
+	@Override
+	public HashMap<String, String> queryNewsById(String id) {
+		return sqlSessionTemplate.selectOne("queryNewsById");
 	}
 
 }
