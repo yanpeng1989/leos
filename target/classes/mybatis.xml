@@ -5,6 +5,7 @@
 		<typeAlias alias="user" type="com.pay.model.User"/>
 		<typeAlias alias="wallet" type="com.pay.model.Wallet"/>
 		<typeAlias alias="bank" type="com.pay.model.Bank"/>
+		<typeAlias alias="news" type="com.pay.model.News"/>
 	</typeAliases>
 	
 	<!-- 指定映射文件 -->

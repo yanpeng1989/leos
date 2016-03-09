@@ -9,12 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.pay.service.NewsService;
 import com.pay.service.UserService;
 
 @Controller
 public class HomeController {
 	@Autowired
 	public UserService userService;
+	@Autowired
+	public NewsService newsService;
 
 	@RequestMapping(value = "index")
 	public String index(HttpSession session, Model model) {
@@ -27,6 +30,7 @@ public class HomeController {
 			String level = String.valueOf(session.getAttribute("level"));
 			model.addAttribute("level", level);
 			model.addAttribute("wallet", userService.queryWalletByUsername(username));
+			model.addAttribute("news",newsService.queryNewsByLimit());
 			return "index";
 		}
 	}
@@ -71,6 +75,7 @@ public class HomeController {
 			model.addAttribute("realname", realname);
 			String level = String.valueOf(session.getAttribute("level"));
 			model.addAttribute("level", level);
+			model.addAttribute("binding", userService.getListBindingByUsername(username));
 			return "binding";
 		}
 	}
@@ -117,8 +122,8 @@ public class HomeController {
 		}
 	}
 
-	@RequestMapping(value = "recommend-register",method = RequestMethod.GET)
-	public String recommend_register(HttpSession session, Model model,@RequestParam(value = "father") String father,@RequestParam(value = "position") String position) {
+	@RequestMapping(value = "recommend-register", method = RequestMethod.GET)
+	public String recommend_register(HttpSession session, Model model, @RequestParam(value = "father") String father, @RequestParam(value = "position") String position) {
 		String username = String.valueOf(session.getAttribute("username"));
 		String realname = String.valueOf(session.getAttribute("realname"));
 		if (username.equals("null")) {
@@ -128,8 +133,8 @@ public class HomeController {
 			model.addAttribute("username", username);
 			String level = String.valueOf(session.getAttribute("level"));
 			model.addAttribute("level", level);
-			model.addAttribute("father",father);
-			model.addAttribute("position",position);
+			model.addAttribute("father", father);
+			model.addAttribute("position", position);
 			return "recommend-register";
 		}
 	}

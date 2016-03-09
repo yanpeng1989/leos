@@ -1,7 +1,10 @@
 package com.pay.service;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -151,5 +154,22 @@ public class UserService {
 		params.put("username", username);
 		params.put("binding", binding);
 		userImpl.updateBindingByUsername(params);
+	}
+
+	// 绑定账号列表
+	public List<HashMap<String, Object>> getListBindingByUsername(String username) {
+		HashMap<String, Object> user = userImpl.queryUserByUsername(username);
+		String binding = String.valueOf(user.get("binding"));
+		String[] name = binding.split(",");
+		HashSet<String> temps = new HashSet<String>();
+		for (String string : name) {
+			temps.add(string);
+		}
+		List<HashMap<String, Object>> result = new ArrayList<HashMap<String, Object>>();
+		for (String str : temps) {
+			HashMap<String, Object> link = userImpl.queryUserByUsername(str);
+			result.add(link);
+		}
+		return result;
 	}
 }

@@ -161,29 +161,23 @@
 										<tr>
 											<th>账号</th>
 											<th>级别</th>
-											<th>K币金额</th>
-											<th>CPM</th>
-											<th>绑定时间</th>
+											<th>真实姓名</th>
+											<th>电话</th>
+											<th>注册时间</th>
 											<th>操作</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>xjb</td>
-											<td>一级会员</td>
-											<td>230</td>
-											<td>500</td>
-											<td>2016-02-22 13:11:09</td>
-											<td><button class="btn btn-primary btn-block btn-flat">切换</button></td>
-										</tr>
-										<tr>
-											<td>xjb1990</td>
-											<td>一级会员</td>
-											<td>300</td>
-											<td>400</td>
-											<td>2016-01-12 09:36:45</td>
-											<td><button class="btn btn-primary btn-block btn-flat">切换</button></td>
-										</tr>
+										 <c:forEach var="user" items="${binding}">
+										 	<tr>
+										 		<td>${user.username}</td>
+										 		<td>${user.level}</td>
+										 		<td>${user.realname}</td>
+										 		<td>${user.tel}</td>
+										 		<td>${user.temps}</td>
+										 		<td><a href="/leos/login.do"><button class="btn btn-primary btn-block btn-flat">切换</button></a></td>
+										 	</tr>
+										 </c:forEach>
 									</tbody>
 								</table>
 							</div>
@@ -217,6 +211,7 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary btn-flat" data-dismiss="modal">关闭</button>
 					<button id="confirm" type="button" class="btn btn-primary btn-flat">确定</button>
+					<button id="refresh" type="button" class="btn btn-primary btn-flat">查看</button>
 				</div>
 			</div>
 		</div>
@@ -230,6 +225,8 @@
 	<script type="text/javascript">
 		$(function() {
 			$("#binding").click(function(){
+				$("#confirm").show() ;
+				$("#refresh").hide() ;
 				show_model("确定绑定账户");
 			});
 			$("#confirm").click(
@@ -238,10 +235,12 @@
 						var password = $("#password").val();
 						if (username == '') {
 							$("#confirm").hide();
+							$("#refresh").hide() ;
 							show_model("输入绑定的账号");
 							return;
 						} else if (password == '') {
 							$("#confirm").hide();
+							$("#refresh").hide() ;
 							show_model("输入绑定账号的密码");
 							return;
 						} 
@@ -254,16 +253,25 @@
 							dataType : 'json',
 							success : function(data) {
 								if (data.result == 'success') {
-									show_model("确认绑定");
+									$("#confirm").hide();
+									$("#refresh").show() ;
+									show_model("绑定成功");
 								} else if (data.result == 'error') {
+									$("#confirm").hide();
+									$("#refresh").hide() ;
 									show_model("绑定的账户用户名和密码有误");
 								}
 							},
 							error : function(data) {
 								show_model("加载失败");
+								$("#confirm").hide();
+								$("#refresh").hide() ;
 							}
 						});
 					});
+		});
+		$("#refresh").click(function(){
+			window.location.reload();
 		});
 	</script>
 </body>

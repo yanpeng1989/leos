@@ -190,7 +190,8 @@ public class AjaxContrallor {
 		if (userService.queryUserByPassword(params.get("username"), params.get("password")).isEmpty()) {
 			result_map.put("result", "error");
 		} else {
-			if (!userService.queryUserByUsername(username).get("binding").equals("null")) {
+			String temps = String.valueOf(userService.queryUserByUsername(username).get("binding"));
+			if (!temps.equals("null")) {
 				binding = userService.queryUserByUsername(username).get("binding") + "," + binding;
 			}
 			userService.updateBindingByUsername(username, binding);

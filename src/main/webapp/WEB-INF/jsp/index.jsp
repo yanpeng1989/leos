@@ -198,60 +198,18 @@
 												<th>编号</th>
 												<th>标题</th>
 												<th>时间</th>
-												<th>发布人</th>
 												<th>详情</th>
 											</tr>
 										</thead>
 										<tbody>
+											<c:forEach var="news" items="${news}">
 											<tr>
-												<td>1254</td>
-												<td style="color: red;">第六次CPM配送已完成！</td>
-												<td>2016-02-22 13:11:09</td>
-												<td>量子货币</td>
-												<td><a href="#">详情</a></td>
+												<td>${news.id}</td>
+												<td style="color: red;">${news.title}</td>
+												<td>${news.temps}</td>
+												<td><a id="href" href="${news.id}">详情</a></td>
 											</tr>
-											<tr>
-												<td>1253</td>
-												<td style="color: red;"> 通知（春节）</td>
-												<td>2016-01-14 22:06:23</td>
-												<td>量子货币</td>
-												<td><a href="#">详情</a></td>
-											</tr>
-											<tr>
-												<td>1252</td>
-												<td style="color: red;"> 紧急通知！！</td>
-												<td>2016-01-14 14:16:33</td>
-												<td>量子货币</td>
-												<td><a href="#">详情</a></td>
-											</tr>
-											<tr>
-												<td>1251</td>
-												<td style="color: red;">温馨提示！</td>
-												<td>2016-01-12 17:51:07</td>
-												<td>量子货币</td>
-												<td><a href="#">详情</a></td>
-											</tr>
-											<tr>
-												<td>1250</td>
-												<td style="color: red;">第五次CPM配送已完成！</td>
-												<td>2016-01-01 09:16:03</td>
-												<td>量子货币</td>
-												<td><a href="#">详情</a></td>
-											</tr>
-											<tr>
-												<td>1249</td>
-												<td style="color: red;">规则提示</td>
-												<td>2015-11-08 03:27:07</td>
-												<td>量子货币</td>
-												<td><a href="#">详情</a></td>
-											</tr>
-											<tr>
-												<td>1248</td>
-												<td style="color: red;">第四次CPM配送已完成！</td>
-												<td>2015-09-22 21:31:23</td>
-												<td>量子货币</td>
-												<td><a href="#">详情</a></td>
-											</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 								</div>
