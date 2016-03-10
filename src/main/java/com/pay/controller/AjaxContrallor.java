@@ -205,4 +205,28 @@ public class AjaxContrallor {
 		}
 		return result_json;
 	}
+
+	// 绑定账户
+	@RequestMapping(value = "update-ajax", method = RequestMethod.POST)
+	@ResponseBody
+	public String update_ajax(HttpSession session, @RequestBody HashMap<String, String> params) {
+		String username = String.valueOf(session.getAttribute("username"));
+		String number = params.get("level");
+		HashMap<String, Object> user = userService.queryBankByUsername(username);
+		HashMap<String, Object> wallet = userService.queryWalletByUsername(username);
+		
+		String user_level = String.valueOf(user.get("level"));
+		double k_coin = Double.parseDouble((String) wallet.get("k_coin"));
+		
+		HashMap<String, String> result_map = new HashMap<String, String>();
+
+		result_map.put("result", "success");
+		String result_json = "";
+		try {
+			ObjectMapper objectMapper = new ObjectMapper();
+			result_json = objectMapper.writeValueAsString(result_map);
+		} catch (Exception e) {
+		}
+		return result_json;
+	}
 }

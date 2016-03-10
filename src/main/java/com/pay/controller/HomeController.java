@@ -91,6 +91,7 @@ public class HomeController {
 			model.addAttribute("realname", realname);
 			String level = String.valueOf(session.getAttribute("level"));
 			model.addAttribute("level", level);
+			model.addAttribute("wallet", userService.queryWalletByUsername(username));
 			return "update";
 		}
 	}
@@ -409,11 +410,13 @@ public class HomeController {
 	public String detail(HttpSession session, Model model,HttpServletRequest request) {
 		String username = String.valueOf(session.getAttribute("username"));
 		String news_id=request.getParameter("new_id");
+		System.out.println(newsService.queryNewsById(news_id).getComment());
 		if (username.equals("null")) {
 			return "login";
 		} else {
-			model.addAttribute("comment", newsService.queryNewsById(news_id).get("comment"));
-			model.addAttribute("title", newsService.queryNewsById(news_id).get("title"));
+			model.addAttribute("comment", newsService.queryNewsById(news_id).getComment());
+			model.addAttribute("title", newsService.queryNewsById(news_id).getTitle());
+			model.addAttribute("temps", newsService.queryNewsById(news_id).getTemps());
 			return "detail";
 		}
 	}

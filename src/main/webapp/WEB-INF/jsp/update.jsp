@@ -1,15 +1,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="head.jsp"></jsp:include>
+<script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 		<header class="main-header">
 			<a href="#" class="logo"> <span class="logo-mini"><b>LE</b>OS</span> <span class="logo-lg"><b>量子货币</b>LEOS</span>
 			</a>
 			<nav class="navbar navbar-static-top" role="navigation">
-				<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            		<span class="sr-only">Toggle navigation</span>
-          		</a>
+				<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"> <span class="sr-only">Toggle
+						navigation</span>
+				</a>
 				<div class="navbar-custom-menu">
 					<div class="navbar-custom-menu">
 						<ul class="nav navbar-nav">
@@ -131,7 +133,7 @@
 					<div class="box-body">
 						<div class="box box-widget widget-user">
 							<div class="widget-user-header bg-aqua-active">
-								<h3 class="widget-user-username">一级会员</h3>
+								<h3 id="level" class="widget-user-username">${level}</h3>
 								<h5 class="widget-user-desc">中国区</h5>
 							</div>
 							<div class="widget-user-image">
@@ -142,37 +144,37 @@
 									<div class="col-sm-2 border-right">
 										<div class="description-block">
 											<h5 class="description-header">总奖金($)</h5>
-											<span class="description-text">3200</span>
+											<span class="description-text">${wallet.sum_bonus}</span>
 										</div>
 									</div>
 									<div class="col-sm-2 border-right">
 										<div class="description-block">
 											<h5 class="description-header">K币($)</h5>
-											<span class="description-text">200</span>
+											<span class="description-text">${wallet.k_coin}</span>
 										</div>
 									</div>
 									<div class="col-sm-2 border-right">
 										<div class="description-block">
 											<h5 class="description-header">激活币($)</h5>
-											<span class="description-text">100</span>
+											<span class="description-text">${wallet.a_coin}</span>
 										</div>
 									</div>
 									<div class="col-sm-2 border-right">
 										<div class="description-block">
 											<h5 class="description-header">电子币($)</h5>
-											<span class="description-text">500</span>
+											<span class="description-text">${wallet.e_coin}</span>
 										</div>
 									</div>
 									<div class="col-sm-2 border-right">
 										<div class="description-block">
 											<h5 class="description-header">保管金($)</h5>
-											<span class="description-text">20</span>
+											<span class="description-text">${wallet.c_coin}</span>
 										</div>
 									</div>
 									<div class="col-sm-2">
 										<div class="description-block">
 											<h5 class="description-header">CPM</h5>
-											<span class="description-text">100</span>
+											<span class="description-text">${wallet.cpm_coin}</span>
 										</div>
 									</div>
 								</div>
@@ -200,37 +202,37 @@
 										<td>一级会员</td>
 										<td>100$</td>
 										<td>0$</td>
-										<td>已升级</td>
+										<td id="level1"><a id='a1' href="#">升级</a></td>
 									</tr>
 									<tr>
 										<td>二级会员</td>
 										<td>200$</td>
 										<td>100$</td>
-										<td><a href="#">升级</a></td>
+										<td id="level2"><a id='a2' href="#">升级</a></td>
 									</tr>
 									<tr>
 										<td>三级会员</td>
 										<td>500$</td>
 										<td>400$</td>
-										<td><a href="#">升级</a></td>
+										<td id="level3"><a id='a3' href="#">升级</a></td>
 									</tr>
 									<tr>
 										<td>四级会员</td>
 										<td>1000$</td>
 										<td>900$</td>
-										<td><a href="#">升级</a></td>
+										<td id="level4"><a id='a4' href="#">升级</a></td>
 									</tr>
 									<tr>
 										<td>五级会员</td>
 										<td>2000$</td>
 										<td>1900$</td>
-										<td><a href="#">升级</a></td>
+										<td id="level5"><a id='a5' href="#">升级</a></td>
 									</tr>
 									<tr>
 										<td>六级会员</td>
 										<td>3000$</td>
 										<td>2900$</td>
-										<td><a href="#">升级</a></td>
+										<td id="level6"><a id='a6' href="#">升级</a></td>
 									</tr>
 								</tbody>
 							</table>
@@ -248,6 +250,179 @@
 		<strong>Copyright &copy; 2014-2015 <a href="#">LEOS—FUND</a>.
 		</strong> All rights reserved.
 	</footer>
-	<jsp:include page="foot.jsp"></jsp:include>
+	<!-- 模态框 Begin-->
+	<div id="alert_msg" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" style="font-family: 微软雅黑;">提示</h4>
+				</div>
+				<div class="modal-body">
+					<p id="alert_data" style="font-family: 微软雅黑;">&hellip;</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-flat" data-dismiss="modal">关闭</button>
+					<button id="confirm" type="button" class="btn btn-primary btn-flat">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function show_model(content) {
+			$("#alert_data").html(content);
+			$('#alert_msg').modal('show');
+		}
+	</script>
+	<script type="text/javascript">
+		$(function() {
+			var level = $("#level").text();
+			if (level == '一级会员') {
+				$("#level1").html('已升级');
+				$("#level2")
+						.html(
+								"<button id='a2' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+				$("#level3")
+						.html(
+								"<button id='a3' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+				$("#level4")
+						.html(
+								"<button id='a4' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+				$("#level5")
+						.html(
+								"<button id='a5' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+				$("#level6")
+						.html(
+								"<button id='a6' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+			} else if (level == '二级会员') {
+				$("#level1").html('已升级');
+				$("#level2").html('已升级');
+				$("#level3")
+						.html(
+								"<button id='a3' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+				$("#level4")
+						.html(
+								"<button id='a4' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+				$("#level5")
+						.html(
+								"<button id='a5' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+				$("#level6")
+						.html(
+								"<button id='a6' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+			} else if (level == '三级会员') {
+				$("#level1").html('已升级');
+				$("#level2").html('已升级');
+				$("#level3").html('已升级');
+				$("#level4")
+						.html(
+								"<button id='a4' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+				$("#level5")
+						.html(
+								"<button id='a5' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+				$("#level6")
+						.html(
+								"<button id='a6' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+			} else if (level == '四级会员') {
+				$("#level1").html('已升级');
+				$("#level2").html('已升级');
+				$("#level3").html('已升级');
+				$("#level4").html('已升级');
+				$("#level5")
+						.html(
+								"<button id='a5' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+				$("#level6")
+						.html(
+								"<button id='a6' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+			} else if (level == '五级会员') {
+				$("#level1").html('已升级');
+				$("#level2").html('已升级');
+				$("#level3").html('已升级');
+				$("#level4").html('已升级');
+				$("#level5").html('已升级');
+				$("#level6")
+						.html(
+								"<button id='a6' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+			} else if (level == '六级会员') {
+				$("#level1").html('已升级');
+				$("#level2").html('已升级');
+				$("#level3").html('已升级');
+				$("#level4").html('已升级');
+				$("#level5").html('已升级');
+				$("#level6").html('已升级');
+			} else {
+				$("#level1")
+						.html(
+								"<button id='a1' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+				$("#level2")
+						.html(
+								"<button id='a2' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+				$("#level3")
+						.html(
+								"<button id='a3' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+				$("#level4")
+						.html(
+								"<button id='a4' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+				$("#level5")
+						.html(
+								"<button id='a5' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+				$("#level6")
+						.html(
+								"<button id='a6' type='button' class='btn btn-primary btn-sm btn-flat'>升级</button>");
+			}
+		});
+	</script>
+	<script type="text/javascript">
+		$(function() {
+			var no=1;
+			$("#a2").click(function() {
+				no=2;
+				show_model("确定升级");
+			});
+			$("#a3").click(function() {
+				no=3;
+				show_model("确定升级");
+			});
+			$("#a4").click(function() {
+				no=4;
+				show_model("确定升级");
+			});
+			$("#a5").click(function() {
+				no=5;
+				show_model("确定升级");
+			});
+			$("#a6").click(function() {
+				no=6;
+				show_model("确定升级");
+			});
+			$("#confirm").click(function(){
+				update(no);
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		function update(number) {
+			var params = '{"level":"' +number + '"}';
+			$.ajax({
+				type : "POST",
+				contentType : "application/json;",
+				url : "../leos/update-ajax.do",
+				data : params,
+				dataType : 'json',
+				success : function(data) {
+					if (data.result == 'success') {
+						$("#confirm").hide();
+						show_model("升级成功");
+					} else if (data.result == 'error') {
+						show_model("升级失败，您的K币不足，缺少" + data.number + "金币");
+					}
+				},
+				error : function(data) {
+					show_model("加载失败");
+				}
+			});
+		}
+	</script>
 </body>
 </html>

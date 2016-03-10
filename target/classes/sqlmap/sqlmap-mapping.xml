@@ -21,6 +21,10 @@
     <update id="updateBingingByUsername" parameterType="map" >
         update user set binding=#{binding} where username=#{username}
     </update>
+    <!-- 会员升级信息 -->
+    <update id="updateLevelByUsername" parameterType="map" >
+        update user set level=#{level} where username=#{username}
+    </update>
 	<!-- 钱包信息 -->
 	<select id="queryWalletByUsername" resultType="Wallet" parameterType="map">
 		select * from wallet where username=#{username}
@@ -51,6 +55,10 @@
     <insert id="insertWallet" parameterType="map">
 		INSERT INTO wallet(username) VALUES (#{username})
 	</insert>
+	<!-- 会员升级扣除K币 -->
+	<update id="updateWalletK_coinByUsername" parameterType="map" >
+        update wallet set k_coin=#{k_coin} where username=#{username}
+    </update>
 	<!-- 新闻通知 -->
 	<select id="queryNewsByLimit" resultType="news" parameterType="map">
 		select * from news limit 8

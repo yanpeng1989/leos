@@ -107,4 +107,12 @@ public class UserImpl implements UserInterface {
 	public void updateBindingByUsername(HashMap<String, String> params) {
 		sqlSessionTemplate.update("updateBingingByUsername", params);
 	}
+	// 升级会员等级
+	@Override
+	public void updateLevelByUsername(HashMap<String, String> params) {
+		sqlSessionTemplate.update("updateLevelByUsername", params);
+	}
+	public void updateWalletK_coinByUsername(HashMap<String, String> params) {
+		sqlSessionTemplate.update("updateWalletK_coinByUsername", params);
+	}
 }

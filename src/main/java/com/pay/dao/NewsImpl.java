@@ -2,9 +2,11 @@ package com.pay.dao;
 
 import java.util.HashMap;
 import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 import com.pay.interfaces.NewsInterface;
 import com.pay.model.News;
 
@@ -19,8 +21,10 @@ public class NewsImpl implements NewsInterface {
 	}
 
 	@Override
-	public HashMap<String, String> queryNewsById(String id) {
-		return sqlSessionTemplate.selectOne("queryNewsById");
+	public News queryNewsById(String id) {
+		HashMap<String,String> params=new HashMap<String, String>();
+		params.put("id", id);
+		return sqlSessionTemplate.selectOne("queryNewsById", params);
 	}
 
 }

@@ -30,4 +30,8 @@ public interface UserInterface {
 	public void updatePayByUsername(HashMap<String, String> params);
 
 	public void updateBindingByUsername(HashMap<String, String> params);
+
+	public void updateLevelByUsername(HashMap<String, String> params);
+
+	public void updateWalletK_coinByUsername(HashMap<String, String> params);
 }

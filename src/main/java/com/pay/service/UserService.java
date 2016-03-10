@@ -172,4 +172,21 @@ public class UserService {
 		}
 		return result;
 	}
+
+	// 升级会员信息
+	public double updateLevelByUsername(String username, String level) {
+		Wallet wallet = userImpl.queryWalletByUsername(username);
+		HashMap<String,Object> user= userImpl.queryUserByUsername(username);
+		
+		double k_coin=wallet.getK_coin();
+		HashMap<String, String> params = new HashMap<String, String>();
+		if (level.equals("2")) {
+			params.put("username", username);
+			params.put("level", "二级会员");
+			if(k_coin>200){
+				k_coin=k_coin-200;
+			}
+		}
+		return 0;
+	}
 }
