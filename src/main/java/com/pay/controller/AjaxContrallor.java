@@ -206,21 +206,15 @@ public class AjaxContrallor {
 		return result_json;
 	}
 
-	// 绑定账户
+	// 升级会员
 	@RequestMapping(value = "update-ajax", method = RequestMethod.POST)
 	@ResponseBody
 	public String update_ajax(HttpSession session, @RequestBody HashMap<String, String> params) {
 		String username = String.valueOf(session.getAttribute("username"));
-		String number = params.get("level");
-		HashMap<String, Object> user = userService.queryBankByUsername(username);
-		HashMap<String, Object> wallet = userService.queryWalletByUsername(username);
-		
-		String user_level = String.valueOf(user.get("level"));
-		double k_coin = Double.parseDouble((String) wallet.get("k_coin"));
-		
+		String level = params.get("level");
+		String result = userService.updateLevelByUsername(username, level);
 		HashMap<String, String> result_map = new HashMap<String, String>();
-
-		result_map.put("result", "success");
+		result_map.put("result", result);
 		String result_json = "";
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();

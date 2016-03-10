@@ -414,8 +414,8 @@
 					if (data.result == 'success') {
 						$("#confirm").hide();
 						show_model("升级成功");
-					} else if (data.result == 'error') {
-						show_model("升级失败，您的K币不足，缺少" + data.number + "金币");
+					} else if (data.result == 'lack') {
+						show_model("升级失败，您的K币不足，缺少");
 					}
 				},
 				error : function(data) {

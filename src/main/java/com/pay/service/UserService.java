@@ -174,19 +174,51 @@ public class UserService {
 	}
 
 	// 升级会员信息
-	public double updateLevelByUsername(String username, String level) {
+	public String updateLevelByUsername(String username, String level) {
 		Wallet wallet = userImpl.queryWalletByUsername(username);
-		HashMap<String,Object> user= userImpl.queryUserByUsername(username);
-		
-		double k_coin=wallet.getK_coin();
+		HashMap<String, Object> user = userImpl.queryUserByUsername(username);
+
 		HashMap<String, String> params = new HashMap<String, String>();
-		if (level.equals("2")) {
-			params.put("username", username);
-			params.put("level", "二级会员");
-			if(k_coin>200){
-				k_coin=k_coin-200;
-			}
+		double level_number = 100;
+		double level_array[] = { 100, 200, 500, 1000, 2000, 5000 };
+		String user_level = String.valueOf(user.get("level"));
+		if (user_level.equals("一级会员")) {
+			level_number = 100;
+		} else if (user_level.equals("二级会员")) {
+			level_number = 200;
+		} else if (user_level.equals("三级会员")) {
+			level_number = 500;
+		} else if (user_level.equals("四级会员")) {
+			level_number = 1000;
+		} else if (user_level.equals("五级会员")) {
+			level_number = 2000;
 		}
-		return 0;
+		int number = Integer.parseInt(level);
+		double need_coin = level_array[number - 1] - level_number;
+		double k_coin = wallet.getK_coin();
+		if (need_coin > k_coin) {
+			return "lack";
+		} else {
+			String level_code = "一级会员";
+			if (number == 2) {
+				level_code = "二级会员";
+			} else if (number == 3) {
+				level_code = "三级会员";
+			} else if (number == 4) {
+				level_code = "四级会员";
+			} else if (number == 5) {
+				level_code = "五级会员";
+			} else if (number == 6) {
+				level_code = "六级会员";
+			}
+			params.put("level", level_code);
+			params.put("username", username);
+			double remain = k_coin - need_coin;
+			params.put("k_coin", String.valueOf(remain));
+			userImpl.updateLevelByUsername(params);
+			userImpl.updateWalletK_coinByUsername(params);
+			return "success";
+		}
+
 	}
 }
