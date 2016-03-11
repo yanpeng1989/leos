@@ -1,6 +1,7 @@
 package com.pay.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.pay.model.User;
 import com.pay.service.UserService;
 
 @Controller
@@ -215,6 +217,23 @@ public class AjaxContrallor {
 		String result = userService.updateLevelByUsername(username, level);
 		HashMap<String, String> result_map = new HashMap<String, String>();
 		result_map.put("result", result);
+		String result_json = "";
+		try {
+			ObjectMapper objectMapper = new ObjectMapper();
+			result_json = objectMapper.writeValueAsString(result_map);
+		} catch (Exception e) {
+		}
+		return result_json;
+	}
+
+	// 升级会员
+	@RequestMapping(value = "recommend-search-ajax", method = RequestMethod.POST)
+	@ResponseBody
+	public String recommend_search_ajax(HttpSession session, @RequestBody HashMap<String, String> params) {
+		String username = params.get("username");
+		String leader = String.valueOf(session.getAttribute("username"));
+		List<User> list_user = userService.queryUserByLeader(leader, username);
+		HashMap<String, String> result_map = new HashMap<String, String>();
 		String result_json = "";
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();

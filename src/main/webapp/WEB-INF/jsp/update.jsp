@@ -255,7 +255,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button id="xclose" type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h4 class="modal-title" style="font-family: 微软雅黑;">提示</h4>
@@ -264,8 +264,9 @@
 					<p id="alert_data" style="font-family: 微软雅黑;">&hellip;</p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary btn-flat" data-dismiss="modal">关闭</button>
+					<button id="close" type="button" class="btn btn-primary btn-flat" data-dismiss="modal">关闭</button>
 					<button id="confirm" type="button" class="btn btn-primary btn-flat">确定</button>
+					<button id="refresh" type="button" class="btn btn-primary btn-flat">查看</button>
 				</div>
 			</div>
 		</div>
@@ -378,22 +379,27 @@
 			var no=1;
 			$("#a2").click(function() {
 				no=2;
+				$("#refresh").hide();
 				show_model("确定升级");
 			});
 			$("#a3").click(function() {
 				no=3;
+				$("#refresh").hide();
 				show_model("确定升级");
 			});
 			$("#a4").click(function() {
 				no=4;
+				$("#refresh").hide();
 				show_model("确定升级");
 			});
 			$("#a5").click(function() {
 				no=5;
+				$("#refresh").hide();
 				show_model("确定升级");
 			});
 			$("#a6").click(function() {
 				no=6;
+				$("#refresh").hide();
 				show_model("确定升级");
 			});
 			$("#confirm").click(function(){
@@ -413,9 +419,14 @@
 				success : function(data) {
 					if (data.result == 'success') {
 						$("#confirm").hide();
+						$("#xclose").hide();
+						$("#close").hide();
+						$("#refresh").show();
 						show_model("升级成功");
 					} else if (data.result == 'lack') {
-						show_model("升级失败，您的K币不足，缺少");
+						$("#confirm").hide();
+						$("#refresh").hide();
+						show_model("升级失败，您的K币不足");
 					}
 				},
 				error : function(data) {
@@ -423,6 +434,13 @@
 				}
 			});
 		}
+	</script>
+	<script type="text/javascript">
+	$(function(){
+		$("#refresh").click(function(){
+			window.location.href="/leos/update.do";
+		});
+	});
 	</script>
 </body>
 </html>

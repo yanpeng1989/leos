@@ -1,6 +1,7 @@
 package com.pay.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -107,12 +108,24 @@ public class UserImpl implements UserInterface {
 	public void updateBindingByUsername(HashMap<String, String> params) {
 		sqlSessionTemplate.update("updateBingingByUsername", params);
 	}
+
 	// 升级会员等级
 	@Override
 	public void updateLevelByUsername(HashMap<String, String> params) {
 		sqlSessionTemplate.update("updateLevelByUsername", params);
 	}
+
+	// 升级会员后更新K币信息
 	public void updateWalletK_coinByUsername(HashMap<String, String> params) {
 		sqlSessionTemplate.update("updateWalletK_coinByUsername", params);
+	}
+
+	// 直属会员查找
+	@Override
+	public List<User> queryUserByLeader(String leader, String username) {
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("leader", leader);
+		params.put("username", username);
+		return sqlSessionTemplate.selectList("queryUserByLeader", params);
 	}
 }

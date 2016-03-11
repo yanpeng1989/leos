@@ -15,6 +15,7 @@ public class User implements Serializable {
 	private String realname;
 	private String card_id;
 	private String tel;
+	private String leader;
 	private String father;
 	private String left_son;
 	private String right_son;
@@ -87,6 +88,14 @@ public class User implements Serializable {
 
 	public void setTel(String tel) {
 		this.tel = tel;
+	}
+
+	public String getLeader() {
+		return leader;
+	}
+
+	public void setLeader(String leader) {
+		this.leader = leader;
 	}
 
 	public String getFather() {

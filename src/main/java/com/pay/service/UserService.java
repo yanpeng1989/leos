@@ -113,9 +113,9 @@ public class UserService {
 			new_user.setCard_id(card_id);
 			new_user.setFather(father);
 			if (String.valueOf(recommend.get("key")).equals("null")) {
-				new_user.setKey_path(id);
+				new_user.setKey_path(recommend_username);
 			} else {
-				new_user.setKey_path(String.valueOf(recommend.get("key")) + ";" + id);
+				new_user.setKey_path(String.valueOf(recommend.get("key")) + ";" + recommend_username);
 			}
 			new_user.setPlace("亚太");
 			new_user.setPassword(password);
@@ -125,9 +125,10 @@ public class UserService {
 			new_user.setTel(tel);
 			new_user.setUsername(username);
 			new_user.setPlace(place);
-			new_user.setValid("有效");
+			new_user.setValid("0");
 			new_user.setLeft_son("");
 			new_user.setRight_son("");
+			new_user.setLeader(recommend_username);
 			userImpl.insertUser(new_user);
 			userImpl.insertWallet(username);
 			if (position.equals("左侧")) {
@@ -219,6 +220,13 @@ public class UserService {
 			userImpl.updateWalletK_coinByUsername(params);
 			return "success";
 		}
+	}
 
+	// 直属会员查找
+	public List<User> queryUserByLeader(String leader, String username) {
+		if (username == "") {
+			username = null;
+		}
+		return userImpl.queryUserByLeader(leader, username);
 	}
 }

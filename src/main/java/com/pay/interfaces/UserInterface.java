@@ -1,6 +1,7 @@
 package com.pay.interfaces;
 
 import java.util.HashMap;
+import java.util.List;
 
 import com.pay.model.Bank;
 import com.pay.model.User;
@@ -34,4 +35,6 @@ public interface UserInterface {
 	public void updateLevelByUsername(HashMap<String, String> params);
 
 	public void updateWalletK_coinByUsername(HashMap<String, String> params);
+
+	public List<User> queryUserByLeader(String leader,String username);
 }

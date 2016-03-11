@@ -1,15 +1,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="head.jsp"></jsp:include>
+<script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 		<header class="main-header">
 			<a href="#" class="logo"> <span class="logo-mini"><b>LE</b>OS</span> <span class="logo-lg"><b>量子货币</b>LEOS</span>
 			</a>
 			<nav class="navbar navbar-static-top" role="navigation">
-				<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            		<span class="sr-only">Toggle navigation</span>
-          		</a>
+				<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"> <span class="sr-only">Toggle
+						navigation</span>
+				</a>
 				<div class="navbar-custom-menu">
 					<div class="navbar-custom-menu">
 						<ul class="nav navbar-nav">
@@ -133,9 +135,10 @@
 						<h3 class="box-title">列表</h3>
 						<br /> <br />
 						<div class="input-group">
-							<span class="input-group-addon">按照姓名搜索</span>
-							<input type="text" class="form-control"> 
-							<span class="input-group-btn"><button class="btn btn-primary btn-flat">搜索</button></span>
+							<span class="input-group-addon">按照姓名搜索</span> <input id="username" type="text" class="form-control"> <span
+								class="input-group-btn">
+								<button id="search" class="btn btn-primary btn-flat">搜索</button>
+							</span>
 						</div>
 					</div>
 					<div class="box-body">
@@ -150,20 +153,15 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>30017</td>
-									<td>武威</td>
-									<td>一级会员</td>
-									<td>2016-01-14 22:06:23</td>
-									<td>13621156481</td>
-								</tr>
-								<tr>
-									<td>30458</td>
-									<td>张彤</td>
-									<td>二级会员</td>
-									<td>2016-01-12 17:51:07</td>
-									<td>13265487895</td>
-								</tr>
+								<c:forEach var="user" items="${list}">
+									<tr>
+										<td>${user.id}</td>
+										<td>${user.realname}</td>
+										<td>${user.level}</td>
+										<td>${user.temps}</td>
+										<td>${user.tel}</td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
@@ -179,6 +177,27 @@
 		<strong>Copyright &copy; 2014-2015 <a href="#">LEOS—FUND</a>.
 		</strong> All rights reserved.
 	</footer>
-	<jsp:include page="foot.jsp"></jsp:include>
+	<script type="text/javascript">
+		$("#search").click(function() {
+			var params = '{"username":"' + username + '"}';
+			$.ajax({
+				type : "POST",
+				contentType : "application/json;",
+				url : "../leos/recommend-search-ajax.do",
+				data : params,
+				dataType : 'json',
+				success : function(data) {
+					if (data.result == 'success') {
+						show_model("注册成功");
+					} else if (data.result == 'exit') {
+						show_model("用户名已存在");
+					}
+				},
+				error : function(data) {
+					show_model("加载失败");
+				}
+			});
+		});
+	</script>
 </body>
 </html>

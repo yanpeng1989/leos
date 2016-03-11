@@ -10,21 +10,21 @@
 		select * from user where username=#{username} and password=#{password}
 	</select>
 	<!-- 修改登陆密码 -->
-	<update id="updatePasswordByUsername" parameterType="map" >
-        update user set password=#{password} where username=#{username}
-    </update>
-    <!-- 修改支付密码 -->
-	<update id="updatePayByUsername" parameterType="map" >
-        update user set pay=#{pay} where username=#{username}
-    </update>
-    <!-- 修改绑定信息 -->
-    <update id="updateBingingByUsername" parameterType="map" >
-        update user set binding=#{binding} where username=#{username}
-    </update>
-    <!-- 会员升级信息 -->
-    <update id="updateLevelByUsername" parameterType="map" >
-        update user set level=#{level} where username=#{username}
-    </update>
+	<update id="updatePasswordByUsername" parameterType="map">
+		update user set password=#{password} where username=#{username}
+	</update>
+	<!-- 修改支付密码 -->
+	<update id="updatePayByUsername" parameterType="map">
+		update user set pay=#{pay} where username=#{username}
+	</update>
+	<!-- 修改绑定信息 -->
+	<update id="updateBingingByUsername" parameterType="map">
+		update user set binding=#{binding} where username=#{username}
+	</update>
+	<!-- 会员升级信息 -->
+	<update id="updateLevelByUsername" parameterType="map">
+		update user set level=#{level} where username=#{username}
+	</update>
 	<!-- 钱包信息 -->
 	<select id="queryWalletByUsername" resultType="Wallet" parameterType="map">
 		select * from wallet where username=#{username}
@@ -33,32 +33,40 @@
 	<select id="queryBankByUsername" resultType="Bank" parameterType="map">
 		select * from bank where username=#{username}
 	</select>
-	<update id="updateBankByUsername" parameterType="map" >
-        update bank set name=#{name},bank_id=#{bank_id},bank_name=#{bank_name} where username=#{username}
-    </update>
+	<update id="updateBankByUsername" parameterType="map">
+		update bank set name=#{name},bank_id=#{bank_id},bank_name=#{bank_name} where username=#{username}
+	</update>
 	<!-- 检测用户名是否被使用 -->
 	<select id="queryUserByUsername" resultType="map" parameterType="map">
 		select * from user where username=#{username}
 	</select>
+	<!-- 查找直属会员 -->
+	<select id="queryUserByLeader" resultType="map" parameterType="map">
+		select * from user where leader=#{leader}
+		<if test="username != null">
+			and username = #{username}
+		</if>
+	</select>
 	<!-- 注册新用户 -->
 	<insert id="insertUser" parameterType="User">
-		INSERT INTO user(id,username,password,pay,realname,card_id,tel,father,left_son,right_son,level,key_path,valid) VALUES (#{id},#{username},#{password},#{pay},#{realname},#{card_id},#{tel},#{father},#{left_son},#{right_son},#{level},#{key_path},#{valid})
+		INSERT INTO user(id,username,password,pay,realname,card_id,tel,leader,father,left_son,right_son,level,key_path,valid) VALUES
+		(#{id},#{username},#{password},#{pay},#{realname},#{card_id},#{tel},#{leader},#{father},#{left_son},#{right_son},#{level},#{key_path},#{valid})
 	</insert>
 	<!-- 向父节点添加孩子 -->
-	<update id="updateUserRightByusername" parameterType="map" >
-        update user set right_son=#{right_son} where username=#{username}
-    </update>
-    <update id="updateUserLeftByusername" parameterType="map" >
-        update user set left_son=#{left_son} where username=#{username}
-    </update>
-    <!-- 注册新建钱包 -->
-    <insert id="insertWallet" parameterType="map">
+	<update id="updateUserRightByusername" parameterType="map">
+		update user set right_son=#{right_son} where username=#{username}
+	</update>
+	<update id="updateUserLeftByusername" parameterType="map">
+		update user set left_son=#{left_son} where username=#{username}
+	</update>
+	<!-- 注册新建钱包 -->
+	<insert id="insertWallet" parameterType="map">
 		INSERT INTO wallet(username) VALUES (#{username})
 	</insert>
 	<!-- 会员升级扣除K币 -->
-	<update id="updateWalletK_coinByUsername" parameterType="map" >
-        update wallet set k_coin=#{k_coin} where username=#{username}
-    </update>
+	<update id="updateWalletK_coinByUsername" parameterType="map">
+		update wallet set k_coin=#{k_coin} where username=#{username}
+	</update>
 	<!-- 新闻通知 -->
 	<select id="queryNewsByLimit" resultType="news" parameterType="map">
 		select * from news limit 8

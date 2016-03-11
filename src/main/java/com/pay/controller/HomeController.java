@@ -1,5 +1,8 @@
 package com.pay.controller;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.pay.model.User;
 import com.pay.service.NewsService;
 import com.pay.service.UserService;
 
@@ -31,7 +35,7 @@ public class HomeController {
 			String level = String.valueOf(session.getAttribute("level"));
 			model.addAttribute("level", level);
 			model.addAttribute("wallet", userService.queryWalletByUsername(username));
-			model.addAttribute("news",newsService.queryNewsByLimit());
+			model.addAttribute("news", newsService.queryNewsByLimit());
 			return "index";
 		}
 	}
@@ -89,7 +93,8 @@ public class HomeController {
 			return "login";
 		} else {
 			model.addAttribute("realname", realname);
-			String level = String.valueOf(session.getAttribute("level"));
+			HashMap<String, Object> user = userService.queryUserByUsername(username);
+			String level = String.valueOf(user.get("level"));
 			model.addAttribute("level", level);
 			model.addAttribute("wallet", userService.queryWalletByUsername(username));
 			return "update";
@@ -151,6 +156,7 @@ public class HomeController {
 			model.addAttribute("realname", realname);
 			String level = String.valueOf(session.getAttribute("level"));
 			model.addAttribute("level", level);
+			model.addAttribute("list", userService.queryUserByLeader(username, null));
 			return "recommend";
 		}
 	}
@@ -406,10 +412,11 @@ public class HomeController {
 			return "login";
 		}
 	}
+
 	@RequestMapping(value = "detail")
-	public String detail(HttpSession session, Model model,HttpServletRequest request) {
+	public String detail(HttpSession session, Model model, HttpServletRequest request) {
 		String username = String.valueOf(session.getAttribute("username"));
-		String news_id=request.getParameter("new_id");
+		String news_id = request.getParameter("new_id");
 		System.out.println(newsService.queryNewsById(news_id).getComment());
 		if (username.equals("null")) {
 			return "login";
