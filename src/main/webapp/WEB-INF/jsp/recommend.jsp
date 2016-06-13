@@ -1,8 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="head.jsp"></jsp:include>
-<script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 		<header class="main-header">
@@ -24,7 +22,6 @@
 										<p>
 											${level} <small>中国</small>
 										</p></li>
-									<!-- Menu Body -->
 									<li class="user-body">
 										<div class="col-xs-4 text-center">
 											<a href="#">首页</a>
@@ -60,7 +57,6 @@
 						<a href="#"><i class="fa fa-circle text-success"></i>欢迎您！</a>
 					</div>
 				</div>
-				<!-- sidebar menu -->
 				<ul class="sidebar-menu">
 					<li class="header">用户中心</li>
 					<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i> <span>用户资料</span> <i
@@ -127,19 +123,10 @@
 					<li class="active">推荐会员列表</li>
 				</ol>
 			</section>
-
 			<section class="content">
-
 				<div class="box">
 					<div class="box-header">
 						<h3 class="box-title">列表</h3>
-						<br /> <br />
-						<div class="input-group">
-							<span class="input-group-addon">按照姓名搜索</span> <input id="username" type="text" class="form-control"> <span
-								class="input-group-btn">
-								<button id="search" class="btn btn-primary btn-flat">搜索</button>
-							</span>
-						</div>
 					</div>
 					<div class="box-body">
 						<table class="table table-bordered table-striped">
@@ -177,27 +164,6 @@
 		<strong>Copyright &copy; 2014-2015 <a href="#">LEOS—FUND</a>.
 		</strong> All rights reserved.
 	</footer>
-	<script type="text/javascript">
-		$("#search").click(function() {
-			var params = '{"username":"' + username + '"}';
-			$.ajax({
-				type : "POST",
-				contentType : "application/json;",
-				url : "../leos/recommend-search-ajax.do",
-				data : params,
-				dataType : 'json',
-				success : function(data) {
-					if (data.result == 'success') {
-						show_model("注册成功");
-					} else if (data.result == 'exit') {
-						show_model("用户名已存在");
-					}
-				},
-				error : function(data) {
-					show_model("加载失败");
-				}
-			});
-		});
-	</script>
+	<jsp:include page="foot.jsp"></jsp:include>
 </body>
 </html>
